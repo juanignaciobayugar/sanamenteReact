@@ -1,0 +1,396 @@
+/* Reset simple: ayuda a las configuraciones generales de los navegadores: bordes y desbordes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  min-height: 100vh;
+  /* asegura que ocupe toda la altura */
+}
+
+/* Layout central */
+.layout {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1320px) 100px;
+}
+
+.socalo {
+  background: #EAEAEA;
+}
+
+/* Columna central */
+.central {
+  display: flex;
+  flex-direction: column;
+  max-width: 1340px;
+  /* límite fijo */
+}
+
+/* Header */
+header {
+  background: white;
+  color: #32373C;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* logo a la izquierda, tarjeta a la derecha */
+  height: 90px;
+  /* altura fija del header */
+}
+
+.logo-footer {
+  width: 40%;
+  /* ocupa aprox. entre 9% y 15% del header */
+  max-width: 35px;
+  /* límite para pantallas grandes */
+  height: auto;
+  /* mantiene proporción */
+  margin-left: 5px;
+  /* espacio de 10px desde el borde izquierdo */
+
+}
+
+.logo {
+  width: 40%;
+  /* ocupa aprox. entre 9% y 15% del header */
+  max-width: 300px;
+  /* límite para pantallas grandes */
+  height: auto;
+  /* mantiene proporción */
+  margin-left: 10px;
+  /* espacio de 10px desde el borde izquierdo */
+
+}
+
+/* Menu */
+.menu {
+  background: #4D8991;
+  width: 100%;
+  /* ocupa todo el ancho disponible */
+  max-width: 1340px;
+  /* nunca se pasa de este límite */
+  margin: 0 auto;
+  /* centrado */
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* no estira en el eje cruzado */
+  gap: 8px;
+  /* separación entre items, mejor que margin */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+
+}
+
+.menu li {
+  flex: 0 0 auto;
+}
+
+.menu a {
+  font-family: 'Rubik', sans-serif;
+  color: #ddf3f3;
+  display: inline-block;
+  /* se ajusta al contenido */
+  padding: 10px 14px;
+  /* alto y ancho del “botón” */
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.menu a:hover {
+  color: #EE8D62;
+  background: #1A7B91;
+  border-radius: 5px;
+}
+
+
+.contenido {
+  background: white;
+  border-radius: 5px;
+  max-width: 1340px;
+  /* límite máximo */
+  width: 100%;
+  /* ocupa todo hasta ese límite */
+  margin: 0 auto;
+  /* asegura que quede centrado */
+  flex: 1;
+  /* ocupa el espacio disponible dentro de .central */
+}
+
+.foto-principal {
+  display: block;
+  /* evita espacios extra */
+  margin: 0 auto;
+  /* centra horizontalmente */
+  max-width: 100%;
+  /* se adapta al ancho del contenedor */
+  height: auto;
+  /* mantiene proporción */
+  object-fit: cover;
+  /* recorta si sobra espacio */
+}
+
+
+
+
+.portada {
+  display: block;
+  /* la convierte en bloque */
+  margin: 0;
+  /* márgenes automáticos la centran */
+  width: 82%;
+}
+
+/* Contenedor de la imagen + zócalos */
+.contenedor-portada {
+  display: flex;
+  align-items: center;
+  /* centra verticalmente la imagen respecto a los zócalos */
+  justify-content: center;
+  background: #333;
+}
+
+/* Zócalos laterales */
+.socaloPortada {
+  flex: 1;
+  /* cada zócalo ocupa el 10% */
+  height: 100%;
+  /* mismo alto que la imagen */
+  background: #333;
+  /* color del zócalo */
+  align-items: stretch;
+}
+
+.relieveVerdePortada {
+  height: 8px;
+  background: #1A7B91;
+}
+
+
+/* Footer */
+footer {
+  background: #32373C;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Responsivo: en pantallas chicas, columna única */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    /* solo una columna */
+    grid-auto-rows: auto;
+    /* apila todo vertical */
+  }
+
+  /* Los zócalos pasan a franjas horizontales (opcional) */
+  .socalo {
+    height: 50px;
+  }
+
+  /* Menú vertical y a ancho completo en móvil */
+  .menu ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .menu a {
+    display: block;
+    /* ahora sí ocupa el ancho del menú */
+    text-align: center;
+    padding: 14px 18px;
+  }
+}
+
+
+/* ===== Estilos específicos para LOGIN ===== */
+#login .form-container {
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#login .form-container h2 {
+  margin-bottom: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+
+#login .form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#login .form-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#login .form-container button:hover {
+  background: #005fa3;
+}
+
+#login .form-container p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+#login .form-container a {
+  color: #0078d7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#login .form-container a:hover {
+  text-decoration: underline;
+}
+
+#login .mensaje-error {
+  display: none;
+  background-color: #ffe5e5;
+  color: #a94442;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===== Estilos específicos para REGISTRO ===== */
+#register .form-container {
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#register .form-container h2 {
+  margin-bottom: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+
+#register .form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#register .form-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#register .form-container button:hover {
+  background: #005fa3;
+}
+
+#register .form-container p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+#register .mensaje-exito {
+  display: none;
+  background-color: #e6ffed;
+  color: #2d7a46;
+  border: 1px solid #b2f5ea;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#register .mensaje-error {
+  display: none;
+  background-color: #ffe5e5;
+  color: #a94442;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===== Estilos específicos para PERFIL ===== */
+#perfil .form-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#perfil .form-container h2 {
+  margin-bottom: 12px;
+  font-family: 'Rubik', sans-serif;
+}
+
+#perfil .form-container p {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+#perfil .logout {
+  padding: 10px 20px;
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#perfil .logout:hover {
+  background: #c9302c;
+}

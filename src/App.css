@@ -1,0 +1,87 @@
+.contenido {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contenidoPrincipal {
+  margin-top: 1%;
+  flex-direction: row;
+  /* asegura que sea en fila */
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  /* opcional: centra las tarjetas en el contenedor */
+  flex-wrap: wrap;
+  /* permite que bajen a otra línea si no entran */
+  gap: 15px;
+  margin-top: 2%;
+}
+
+
+.card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  background-color: #f5e3fd;
+  padding: 2%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 15px rgba(255, 255, 255, 0.869);
+  /* brillo interno */
+  margin: 0 auto;
+  /* centra el bloque */
+  max-width: 625px;
+  min-width: 320px;
+  max-height: 500px;
+  box-shadow: 0 0 0 1px #a185aa;
+}
+
+
+
+.contenedor {
+  display: flex;
+  gap: 1rem;
+}
+
+.imagen {
+  max-width: 90px;
+  height: auto;
+  border-radius: 100 px;
+  margin-top: 0, 5%;
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5%;
+  /* círculo perfecto */
+}
+
+.contienePregunta {
+  display: flex;
+  flex-direction: column;
+  /* título arriba, botones abajo */
+  max-width: 80%;
+}
+
+.contienePregunta .titulo {
+  flex-wrap: wrap;
+  text-align: left;
+  font-size-adjust: none;
+}
+
+.titulo h4 {
+  font-size: clamp(22px, 1.4vw, 34px);
+  text-align: left;
+  color: #192c36;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  font-family: 'Pyidaungsu',
+
+}
+
+.textoExplicativo h5 {
+  font-size: clamp(17px, 0.95vw, 30px);
+  margin-top: 1px;
+  color: #222323;
+  font-family: 'Pyidaungsu',
+}
