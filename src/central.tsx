@@ -1,8 +1,9 @@
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
-
+import MainEstadistica from "./pages/estudioEstadistico/MainEstadistica.tsx"
+import "./pages/login/login.css";
+import MainLogin from "./pages/login/MainLogin.tsx";
 
 function Central() {
 
@@ -13,7 +14,7 @@ function Central() {
     <div className="central">
       <Header />
       <Nav />
-      <Main />
+      <MainLogin />
       <Footer />
     </div>
     </>

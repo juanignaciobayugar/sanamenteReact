@@ -1,0 +1,97 @@
+.contenido{
+  display: flex;
+  justify-content:center;
+  gap: 10px; 
+  flex-direction: column; 
+}
+
+.contenidoPrincipal{
+  flex-direction: row;   /* asegura que sea en fila */
+  display: flex;
+  gap: 25px;
+  justify-content: center; /* opcional: centra las tarjetas en el contenedor */
+  flex-wrap: wrap;       /* permite que bajen a otra línea si no entran */
+  margin-top: 15px;
+}
+
+.card {
+  display: flex;
+  border: 0.5px solid #0b1a28;
+  background-color: #f5e3fd;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2),
+  inset 0 0 15px rgba(255, 255, 255, 0.869); /* brillo interno */
+  margin: 0 auto;   /* centra el bloque */
+  max-width: 340px;
+  min-width: 300px;
+  max-height: 310px;
+  min-height: 300px;
+  box-shadow: 0 0 0 2px #a185aa;
+}
+
+
+.contieneInforme{
+  display: flex;
+  gap: 10px;
+  flex-direction: column; 
+  justify-content: center; /* opcional: centra las tarjetas en el contenedor */
+  flex-wrap: wrap;       /* permite que bajen a otra línea si no entran */
+}
+
+.contenedor {
+  display: flex;
+  gap:1rem;
+}
+
+.imagen {
+  max-width: 85px;
+  height: auto;
+  border-radius: 100 px;
+  margin-top: 7px;
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5%;   /* círculo perfecto */
+}
+
+.contienePregunta{
+  display: flex;
+  flex-direction: column;   /* título arriba, botones abajo */
+  max-width: 70%;
+}
+
+.contienePregunta .titulo {
+  flex-wrap: wrap;
+  text-align:left;
+  font-size-adjust: none;
+}
+
+.titulo h4{
+  font-size: clamp(22px, 1.3vw, 32px);
+  text-align: left;
+  color: #192c36;
+  text-shadow: 0 0 5px rgba(255,255,255,0.8);
+  font-family: 'Pyidaungsu',;
+  text-align: justify;
+  margin-bottom: 4px;
+
+}
+
+.textoExplicativo h5 {
+font-size: clamp(16px, 0.5vw, 32px);
+margin-top: 1x;
+color: #222323;
+font-family: 'Pyidaungsu',;
+text-align: justify;
+}
+
+.loremp h4 {
+font-size: clamp(14px, 0.91vw, 20px);
+margin-top: 1px;
+color: #222323;
+font-family: 'Pyidaungsu',;
+text-align: justify;
+}
+

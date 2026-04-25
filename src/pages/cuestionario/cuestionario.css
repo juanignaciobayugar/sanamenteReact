@@ -1,0 +1,415 @@
+
+.contenidoPrincipal{
+  flex-direction: row;   /* asegura que sea en fila */
+  display: flex;
+  gap: 25px;
+  justify-content: center; /* opcional: centra las tarjetas en el contenedor */
+  flex-wrap: wrap;       /* permite que bajen a otra línea si no entran */
+  margin-top: 15px;
+}
+
+.card {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0.5px solid #0b1a28;
+  background-color: #D4DDE7;
+  padding: 2%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2),
+  inset 0 0 15px rgba(255,255,255,0.6); /* brillo interno */
+}
+
+.contenedor {
+  display: flex;
+  gap:1rem;
+}
+
+.imagen {
+  max-width: 250px;
+  height: auto;
+  border-radius: 100px;
+  margin-top: 0.5%;
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5%;   /* círculo perfecto */
+}
+
+.contienePregunta{
+display: flex;
+flex-direction: column;   /* título arriba, botones abajo */
+align-items: center;      /* centra todo horizontalmente */
+gap: 2px;      /* espacio entre h4 y botones */
+margin-top: 1%; 
+max-width: 80%;
+}
+
+.titulo {
+  text-align:center;
+  color: #1E3754;
+  font-size-adjust: none;
+  padding: 1%;
+  margin: 0;
+   max-width: 95%;
+}
+
+.titulo h4{
+font-size: clamp(16px, 1.9vw, 32px);
+font-family: 'Pyidaungsu', sans-serif;
+text-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+.botones {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap; /* permite que los botones pasen a la siguiente linea*/
+  gap: 3%;
+  justify-content: space-around; /* reparte espacio */
+  max-width: 95%;
+  max-height: 100%;
+  max-height: auto;
+
+}
+
+
+.btn-img {
+  flex: 1;
+  width: 400px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.btn-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+.btn-img:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien-hover.png");
+}
+
+.btn-img2:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular-hover.png");
+}
+
+.btn-img3:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal-hover.png");
+}
+
+.btn-img4:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo-hover.png");
+}
+
+.btn-img5:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose-hover.png");
+}
+
+
+.btn-imgd {
+  flex: 1;
+  width: none;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+
+
+.btn-imgd img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+
+.btn-img1d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1-hover.png");
+}
+
+.btn-img2d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2-hover.png");
+}
+
+.btn-img3d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/3-hover.png");
+}
+
+.btn-img4d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/4-hover.png");
+}
+
+.btn-img5d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/5-hover.png");
+}
+
+.btn-img6d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/6-hover.png");
+}
+
+.btn-img7d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/7-hover.png");
+}
+
+.btn-img8d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/8-hover.png");
+}
+
+.btn-img9d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/9-hover.png");
+}
+
+.btn-img10d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10-hover.png");
+}
+
+.btn-img11d:hover img {
+    content: url("../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose-hover.png");
+}
+
+
+.btn-imgc {
+  flex: 1;
+  width: none;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.btn-imgc img {
+  width: 130%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+.btn-img1c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/1-hover.png");
+}
+
+.btn-img2c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2-hover.png");
+}
+
+.btn-img3c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/3-hover.png");
+}
+
+.btn-img4c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/4-2.png");
+}
+
+.btn-img5c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/5-2.png");
+}
+
+.btn-img6c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/6-2.png");
+}
+
+.btn-img7c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/7-2.png");
+}
+
+.btn-img8c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/8-2.png");
+}
+
+.btn-img9c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/9-2.png");
+}
+
+.btn-img10c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/10-2.png");
+}
+
+.btn-img11c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/11-2.png");
+}
+
+.btn-img12c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/12-2.png");
+}
+
+.btn-img13c:hover img {
+  content: url("../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/nolose-hover.png");
+}
+
+
+
+
+
+
+
+
+
+
+/*modal de ventana emergente y sus hijos*/
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* si el contenido es muy alto, permite scroll */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 5px;
+  border-radius: 15px;
+  max-width: 600px;   /* límite en pantallas grandes */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.modal.visible {
+  display: flex; /* se muestra cuando tiene la clase visible */
+}
+
+.close {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+}
+
+/*propiedades contenedor emergente */
+.cards-container{
+  display: grid;
+  gap: 5px;
+  width:600px;}
+
+.cardEmergente{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid #0b1a28;
+  background-color: #D4DDE7;
+  padding: 1%;
+  margin: 0;
+  margin: 0 auto;
+  width: 95%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2),
+  inset 0 0 15px rgba(255,255,255,0.6); /* brillo interno */
+}
+
+
+.contienePreguntaEmergente{
+display: flex;
+flex-direction: column;   /* título arriba, botones abajo */
+align-items: center;      /* centra todo horizontalmente */
+gap: 5%;                /* espacio entre h4 y botones */
+margin-top: 0,5%; 
+max-width: 92%;
+margin-right: 5%;
+}
+
+
+.imagenEmergente {
+  max-width: 10%;
+  height: auto;
+  border-radius: 100 px;
+  margin-top: 0,5%;
+}
+
+.imagenEmergente img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;   /* círculo perfecto */
+}
+
+.tituloEmergente {
+  flex-wrap: wrap;
+  text-align:center;
+  color: #1E3754;
+  font-size-adjust: none;
+  padding: 1%;
+  margin: 0;
+   max-width: 95%;
+   
+}
+
+.botonesEmergentes {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap; /* permite que los botones pasen a la siguiente linea*/
+  gap: 3%;
+  justify-content: space-around; /* reparte espacio */
+  max-width: 50%;
+  max-height: 50%;
+  max-height: auto;
+}
+
+.tituloEmergente h4{
+  font-size: clamp(16px, 1vw, 22px);
+  line-height: 1.3;   /* ayuda a que no se deforme */
+  text-align: center; /* opcional, si querés centrar */
+  word-wrap: break-word; /* evita desbordes en emergentes chicos */
+  font-family: 'Pyidaungsu', sans-serif;
+text-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+.botonesEmergentes .btnEstado {
+  flex: 1;
+  width: 60px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.botonesEmergentes .btnEstado img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+.botonesEmergentes .btn-imgd {
+  flex: 1;
+  width: 50px;
+  padding: 2%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.botonesEmergentes .btn-imgd img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+.botonesEmergentes .btnEnergia {
+  flex: 1;
+  width: 50px;
+  padding: 2%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.botonesEmergentes .btnEnergia img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* la imagen entra completa */
+}
+
+
