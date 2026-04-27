@@ -1,0 +1,101 @@
+/* Contenedor principal */
+.section-box {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Fondo del header */
+.subpage-header {
+  background: #D2D9F9;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Texto del header */
+.subpage-header a,
+.subpage-header h1 {
+  color: #404155;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.subpage-header a:hover {
+  text-decoration: underline;
+}
+
+/* 🔹 GRID 2 columnas en escritorio */
+.sobre-cards {
+  display: grid;
+  width: 100%;
+  gap: 25px;
+  margin-top: 40px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 🔹 En móvil → 1 columna */
+@media(max-width: 700px) {
+  .sobre-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ESTILO TARJETAS */
+.card {
+  background: #fff;
+  padding: 22px;
+  border-radius: 14px;
+
+  /* Nueva base más suave */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  /* Para que el hover se note más */
+  border: 2px solid transparent;
+
+  transition: all 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  color: #4b3f72;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+/* Icono en las tarjetas */
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+/* 🌟 HOVER MEJORADO — mirada profesional */
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  /* Borde visible */
+  border-color: #4b3f72;
+
+  /* Sombra profunda + glow suave violeta */
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.22),
+    0 0 12px rgba(130, 115, 230, 0.35);
+}
+
+
+/* Eliminar texto "Volver" en header interno */
+.subpage-header .back-btn,
+.subpage-header a.back-btn {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}

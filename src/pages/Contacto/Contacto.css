@@ -1,0 +1,140 @@
+/* Contenedor general de la página */
+.pagina-contacto {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Título superior - Fuera del flex para que ocupe todo el ancho */
+.contacto-header h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Contenedor principal de las tarjetas */
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre las dos columnas */
+}
+
+/* Estilo base para las tarjetas (Cards) */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border: 1px solid #f0f0f0;
+}
+
+/* Columna Izquierda: Formulario */
+.form-container {
+    flex: 2; /* Ocupa más espacio que la derecha */
+}
+
+.form-container h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Columna Derecha: Redes e Info unificadas */
+.redes-container {
+    flex: 1; /* Más angosta como en el original */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos del Formulario */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fafafa;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Botón zaul (Corregido según mi captura de HTML) */
+.btn-enviar {
+    background-color: #3f51b5; /* El azul oscuro de tu foto */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #303f9f;
+}
+
+/* Listas de iconos y redes */
+.redes-lista, .info-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.redes-lista li, .info-lista li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #3f51b5; /* Color azul para el texto de redes e info */
+}
+
+.redes-lista li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+/* Iconos (Font Awesome) */
+.redes-lista i, .info-lista i {
+    font-size: 1.3rem;
+    width: 25px; /* Para que todos los iconos queden alineados */
+    text-align: center;
+}
+
+/* Colores específicos para iconos que resalten */
+.fa-facebook { color: #1877f2; }
+.fa-instagram { color: #e4405f; }
+.fa-whatsapp { color: #25d366; }
+
+/* Responsive: Para celulares se pone uno debajo del otro */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .form-container, .redes-container {
+        width: 100%;
+    }
+}

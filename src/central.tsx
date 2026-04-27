@@ -1,23 +1,35 @@
-import Header from "./components/Header.tsx";
-import Nav from "./components/Nav.tsx";
-import Footer from "./components/Footer.tsx";
-import MainCuestionario from "./pages/cuestionario/prueba.tsx";
-import "./pages/cuestionario/cuestionario.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import MainEstadistica from "./pages/estudioEstadistico/MainEstadistica.tsx";
+import "./pages/login/login.css";
+import MainLogin from "./pages/login/MainLogin.tsx";
+import MainSobreNosotros from "./pages/SobreNosotros/MainSobreNosotros.tsx";
+import "./pages/SobreNosotros/sobreNosotros.css";
+import MainContacto from "./pages/Contacto/MainContacto.tsx";
+import Main from "./pages/index/Main.tsx";
 
 function Central() {
-
-
   return (
-    <>
-      {/* Header (encabezado) / Navbar (barra de navegacion) */}
-    <div className="central">
-      <Header />
-      <Nav />
-      <MainCuestionario />
-      <Footer />
-    </div>
-    </>
-  )
-}
+    <BrowserRouter>
+      <div className="central">
+        <Header />
+        <Nav />
+        
+        {/* El componente Routes cambiará su contenido según la URL */}
+        <Routes>
+          <Route path="/" element={<Main />} /> {/* O tu Home */}
+          <Route path="/login" element={<MainLogin />} />
+          <Route path="/estadisticas" element={<MainEstadistica />} />
+          <Route path="/contacto" element={<MainContacto />} />
+          <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
+          {/* Agrega aquí el resto de tus rutas */}
+        </Routes>
 
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+}
 export default Central
