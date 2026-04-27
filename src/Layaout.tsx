@@ -1,5 +1,5 @@
 import Aside from "./Aside"
-import Central from "./central"
+import Central from "./Central"
 
 
 function Layout() {
