@@ -1,9 +1,8 @@
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import MainEstadistica from "./pages/estudioEstadistico/MainEstadistica.tsx"
-import "./pages/login/login.css";
-import MainLogin from "./pages/login/MainLogin.tsx";
+import Header from "./components/Header.tsx";
+import Nav from "./components/Nav.tsx";
+import Footer from "./components/Footer.tsx";
+import MainCuestionario from "./pages/cuestionario/prueba.tsx";
+import "./pages/cuestionario/cuestionario.css"
 
 function Central() {
 
@@ -14,7 +13,7 @@ function Central() {
     <div className="central">
       <Header />
       <Nav />
-      <MainLogin />
+      <MainCuestionario />
       <Footer />
     </div>
     </>
