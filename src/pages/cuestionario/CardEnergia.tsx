@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-const CardEnergia: React.FC = () => {
+const CardEnergia: React.FC<{ onSelect?: (valor: string, imgSrc: string) => void }> = ({ onSelect }) => {
   const energiaButtons = [
     { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/1.png" },
     { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2.png" },
@@ -18,12 +18,21 @@ const CardEnergia: React.FC = () => {
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/NO LO SE.png" },
   ];
 
+    const handleSelect = (valor: string, imgSrc: string) => {
+    localStorage.setItem(
+      "ultimoEnergia",
+      JSON.stringify({ tipo: "energia", valor, imgSrc, timestamp: Date.now() })
+    );
+    if (onSelect) onSelect(valor, imgSrc);
+  };
+
   return (
     <Card
       title="¿Cuántas cucharadas de energía tengo para el día de hoy?"
       imageSrc="../src/assets/imagenes/cuestionario/tarjetaEnergia/tarjetaEnergia.png"
       buttons={energiaButtons}
       variant="c"
+      onSelect={handleSelect}
     />
   );
 };

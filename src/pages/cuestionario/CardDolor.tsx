@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-const CardDolor: React.FC = () => {
+const CardDolor: React.FC<{ onSelect?: (valor: string, imgSrc: string) => void }> = ({ onSelect }) => {
   const dolorButtons = [
     { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
     { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
@@ -15,13 +15,20 @@ const CardDolor: React.FC = () => {
     { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose.png" },
   ];
-
+const handleSelect = (valor: string, imgSrc: string) => {
+  localStorage.setItem(
+    "ultimoDolor",
+    JSON.stringify({ tipo: "dolor", valor, imgSrc, timestamp: Date.now() })
+  );
+  if (onSelect) onSelect(valor, imgSrc);
+};
   return (
     <Card
       title="¿Qué tan fuerte es el nivel de dolor que tengo?"
       imageSrc="../src/assets/imagenes/cuestionario/tarjetaDolor/tarjeta dolor.png"
       buttons={dolorButtons}
-      variant="d" // 👈 esto genera btn-img1d, btn-img2d, etc.
+      variant="d" //
+       onSelect={handleSelect}
     />
   );
 };

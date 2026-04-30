@@ -10,12 +10,12 @@ interface CardProps {
   imageSrc: string;
   buttons: ButtonData[];
   variant?: string;
+  onSelect?: (valor: string, imgSrc: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant }) => {
+const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant, onSelect }) => {
   const [ultimoEstado, setUltimoEstado] = useState<string | null>(null);
 
-  // Recuperar al montar
   useEffect(() => {
     const guardado = localStorage.getItem("ultimoEstado");
     if (guardado) {
@@ -26,23 +26,16 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant }) => {
     }
   }, []);
 
-  const handleClick = (valor: string) => {
-    if (!ultimoEstado) {
-      setUltimoEstado(valor);
-      localStorage.setItem(
-        "ultimoEstado",
-        JSON.stringify({ tipo: "estado", valor, timestamp: Date.now() })
-      );
-    } else {
-      alert(
-        `Ya tenés un valor asignado de "Estado". Si deseas cambiar, desmarca la etiqueta en el segmento "mi día".`
-      );
-    }
-  };
+const handleClick = (valor: string, imgSrc: string) => {
+  if (onSelect) {
+    onSelect(valor, imgSrc);
+  }
+};
 
   const handleClear = () => {
     setUltimoEstado(null);
     localStorage.removeItem("ultimoEstado");
+    if (onSelect) onSelect("", "");
   };
 
   return (
@@ -59,26 +52,13 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant }) => {
             {buttons.map((btn, index) => (
               <button
                 key={index}
-                className={`btn-img${variant ?? ""} btn-img${index + 1}${
-                  variant ?? ""
-                } btnEstado`}
-                onClick={() => handleClick(btn.value)}
+                className={`btn-img${variant ?? ""} btn-img${index + 1}${variant ?? ""} btnEstado`}
+                onClick={() => handleClick(btn.value, btn.imgSrc)}
               >
                 <img src={btn.imgSrc} alt={btn.value} />
               </button>
             ))}
           </div>
-
-          {/* Mostrar el valor seleccionado y permitir borrarlo */}
-          {ultimoEstado && (
-            <div
-              id="valorEstado"
-              style={{ display: "block", cursor: "pointer" }}
-              onClick={handleClear}
-            >
-              <p>Seleccionado: {ultimoEstado} (clic para borrar)</p>
-            </div>
-          )}
         </div>
       </div>
     </div>

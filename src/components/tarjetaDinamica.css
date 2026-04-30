@@ -1,0 +1,143 @@
+
+#tarjetaDinamica {
+  display: flex;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  height: 70px;
+  background-color: #deefff;
+    box-shadow: 0 4px 10px rgba(76, 74, 82, 0.2),
+  inset 0 0 15px rgba(238, 221, 255, 0.6); /* brillo interno */
+}
+
+
+
+/*div que se encuentra en header, representando energia*/
+#valorEstado {
+  display: flex;        /* o block, según lo que quieras */
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si tiene altura fija */
+  flex-wrap: wrap;      /* si puede haber más de un botón */
+  overflow: hidden;     /* evita que se desborde */
+  width: 100%;          /* o un ancho fijo */
+  margin-top: 3px;
+}
+
+
+
+#valorEstado button {
+  width: 40px;        /* ancho fijo */
+  height: 40px;        /* alto fijo */
+}
+
+
+/*div que se encuentra en header, representando energia*/
+#valorDolor {
+  display: flex;        /* o block, según lo que quieras */
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si tiene altura fija */
+  flex-wrap: wrap;      /* si puede haber más de un botón */
+  overflow: hidden;     /* evita que se desborde */
+  width: 100%;          /* o un ancho fijo */
+   margin-top: 3px;
+}
+
+#valorDolor button {
+  width: 40px;        /* ancho fijo */
+  height: 40px;        /* alto fijo */
+}
+
+.midia{
+  width: 30px;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column; 
+  font-size-adjust: none;
+  margin: 0;
+  color: black;
+  font-weight: 300;
+}
+
+.midia H4{
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: clamp(5px, 1.95vw, 15px);
+
+}
+
+.Anim {
+  width: 45px;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column; 
+  color: #1E3754;
+  font-size-adjust: none;
+  padding: 1%;
+  margin: 0;
+}
+
+.Anim H4{
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: clamp(5px, 0.95vw, 15px);
+  line-height: 15px; 
+    line-height: 1;       /* evita que las tildes desplacen demasiado */
+}
+
+
+.Dolo {
+  width: 45px;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column; 
+  font-size-adjust: none;
+  margin: 0;
+}
+
+.Dolo H4{
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: clamp(5px, 0.95vw, 15px);
+  line-height: 20px; 
+}
+
+
+.Energi {
+  width: 45px;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column; 
+  font-size-adjust: none;
+  margin: 0;
+
+}
+
+.Energi H4{
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: clamp(5px, 0.95vw, 15px);
+  line-height: 20px; 
+}
+
+/*div que se encuentra en header, representando energia*/
+#valorEnergia {
+  display: flex;        /* o block, según lo que quieras */
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente si tiene altura fija */
+  overflow: hidden;     /* evita que se desborde */
+  width: 100%;          /* o un ancho fijo */
+ margin-top: 3px;
+}
+
+#valorEnergia button {
+  width: 40px;        /* ancho fijo */
+  height: 40px;        /* alto fijo */
+}
+
+#diahoy {
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  font-size: clamp(5px, 0.7vw, 15px);
+  line-height: 20px;
+  color:darkslategray;
+}
+
