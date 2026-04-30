@@ -9,6 +9,8 @@ import MainSobreNosotros from "./pages/SobreNosotros/MainSobreNosotros.tsx";
 import "./pages/SobreNosotros/sobreNosotros.css";
 import MainContacto from "./pages/Contacto/MainContacto.tsx";
 import Main from "./pages/index/Main.tsx";
+import MainCalendario from "./pages/Calendario/MainCalendario.tsx";
+
 
 function Central() {
   return (
@@ -24,6 +26,7 @@ function Central() {
           <Route path="/estadisticas" element={<MainEstadistica />} />
           <Route path="/contacto" element={<MainContacto />} />
           <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
+          <Route path="Calendario" element={<MainCalendario />} />
           {/* Agrega aquí el resto de tus rutas */}
         </Routes>
 
