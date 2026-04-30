@@ -1,4 +1,5 @@
 import CardSobreNosotros from "./CardSobreNostros";
+import "./SobreNosotros.css"
 
 function MainSobreNosotros() {
   return (

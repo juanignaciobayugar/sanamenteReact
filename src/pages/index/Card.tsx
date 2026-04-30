@@ -11,17 +11,17 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ srcImage, title, description }) => {
   return (
-    <div className="card">
-      <div className="contenedor">
+    <div className="cardIndex">
+      <div className="contenedorIndex">
         {/* Imagen de la tarjeta */}
-        <div className="imagen">
+        <div className="imagenIndex">
           <img src={srcImage} alt={title} />
         </div>
-        <div className="contienePregunta">
-          <div className="titulo">
+        <div className="contienePreguntaIndex">
+          <div className="tituloIndex">
             <h4>{title}</h4>
           </div>
-          <div className="textoExplicativo">
+          <div className="textoExplicativoIndex">
             <p>{description}</p>
           </div>
         </div>

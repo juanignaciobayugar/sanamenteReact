@@ -21,6 +21,8 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px; /* Espacio entre las dos columnas */
+    margin-top: 20px;
+  
 }
 
 /* Estilo base para las tarjetas (Cards) */
@@ -35,6 +37,20 @@
 /* Columna Izquierda: Formulario */
 .form-container {
     flex: 2; /* Ocupa más espacio que la derecha */
+    background-color: #fff;
+}
+
+/* 🌟 HOVER MEJORADO — mirada profesional */
+.form-container:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  /* Borde visible */
+  border-color: #4b3f72;
+
+  /* Sombra profunda + glow suave violeta */
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.22),
+    0 0 12px rgba(130, 115, 230, 0.35);
 }
 
 .form-container h3 {
@@ -42,6 +58,29 @@
     margin-bottom: 20px;
     color: #000;
 }
+
+
+/* 🌟 HOVER MEJORADO — mirada profesional */
+.redes-container:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  /* Borde visible */
+  border-color: #4b3f72;
+
+  /* Sombra profunda + glow suave violeta */
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.22),
+    0 0 12px rgba(130, 115, 230, 0.35);
+}
+
+.form-container h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+
+
 
 /* Columna Derecha: Redes e Info unificadas */
 .redes-container {

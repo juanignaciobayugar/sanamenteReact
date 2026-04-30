@@ -1,4 +1,5 @@
 import CardInforme from "./CardEstadistica";
+import "./informeEstadistico.css"
 
 // import Card from "./Card";
 // import './Main.css'

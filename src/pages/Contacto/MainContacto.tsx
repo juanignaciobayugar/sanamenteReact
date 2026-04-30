@@ -1,5 +1,6 @@
 import CardContacto from "./CardContacto";
-import "./contacto.css"; 
+import "./Contacto.css";
+
 
 const MainContacto = () => {
   return (
@@ -33,7 +34,7 @@ const MainContacto = () => {
         </div>
 
         {/* --- Columna derecha: Redes e Información en una única tarjeta blanca --- */}
-        <aside className="redes-container card"> 
+        <aside className="redes-container card">
           
           {/* Sub-sección de Redes */}
           <CardContacto titulo="Seguinos">
