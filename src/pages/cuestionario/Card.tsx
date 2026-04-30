@@ -46,9 +46,9 @@ const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant }) => {
   };
 
   return (
-    <div className="card">
-      <div className="contenedor">
-        <div className="imagen">
+    <div className="cardCuestionario">
+      <div className="contenedorCuestionario">
+        <div className="imagenCuestionario">
           <img src={imageSrc} alt={title} />
         </div>
         <div className="contienePregunta">

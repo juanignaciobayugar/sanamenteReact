@@ -19,7 +19,7 @@
 }
 
 
-.card {
+.cardIndex {
   position: relative;
   width: 100%;
   display: flex;
@@ -38,19 +38,19 @@
 
 
 
-.contenedor {
+.contenedorIndex {
   display: flex;
   gap: 1rem;
 }
 
-.imagen {
+.imagenIndex {
   max-width: 90px;
   height: auto;
   border-radius: 100 px;
   margin-top: 0, 5%;
 }
 
-.imagen img {
+.imagenIndex img {
   max-width: 100%;
   height: auto;
   border-radius: 5%;
@@ -64,13 +64,13 @@
   max-width: 80%;
 }
 
-.contienePregunta .titulo {
+.contienePreguntaIndex .tituloIndex {
   flex-wrap: wrap;
   text-align: left;
   font-size-adjust: none;
 }
 
-.titulo h4 {
+.tituloIndex h4 {
   font-size: clamp(22px, 1.4vw, 34px);
   text-align: left;
   color: #192c36;
@@ -79,7 +79,7 @@
 
 }
 
-.textoExplicativo h5 {
+.textoExplicativoIndex h5 {
   font-size: clamp(17px, 0.95vw, 30px);
   margin-top: 1px;
   color: #222323;

@@ -1,7 +1,7 @@
 import Card from "./Card";
 import CardEnergia from "./CardEnergia";
 import CardDolor from "./CardDolor";
-// import './Main.css'
+import "./cuestionario.css"
 
 function MainCuestionario() {
   return (

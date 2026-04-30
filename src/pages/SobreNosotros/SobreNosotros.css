@@ -43,7 +43,7 @@
 }
 
 /* ESTILO TARJETAS */
-.card {
+.cardSobreNosotros {
   background: #fff;
   padding: 22px;
   border-radius: 14px;
@@ -76,7 +76,7 @@
 }
 
 /* 🌟 HOVER MEJORADO — mirada profesional */
-.card:hover {
+.cardSobreNosotros:hover {
   transform: translateY(-10px) scale(1.02);
 
   /* Borde visible */

@@ -1,4 +1,5 @@
 import CardLogin from "./CardLogin"
+import "./login.css"
 
 // import './Main.css'
 
