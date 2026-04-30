@@ -8,7 +8,7 @@ interface CardProps {
 // 2. Le decimos al componente que use esa Interface
 const CardSobreNosotros = ({ icon, title, description }: CardProps) => {
   return (
-    <div className="card">
+    <div className="cardSobreNosotros">
       <span className="card-icon">{icon}</span>
       <h3>{title}</h3>
       <p>{description}</p>

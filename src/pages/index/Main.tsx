@@ -1,4 +1,5 @@
 import Card from "./Card";
+import "../index/App.css"
 // import './Main.css'
 
 function Main() {

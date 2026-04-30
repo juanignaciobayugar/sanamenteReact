@@ -14,15 +14,15 @@ const CardInforme: React.FC<CardInformeProps> = ({
   loremp,
 }) => {
   return (
-    <div className="card">
-      <div className="contieneInforme">
-        <div className="contenedor">
+    <div className="cardEstadistica">
+      <div className="contieneInformeEstadistica">
+        <div className="contenedorEstadistica">
           {/* Imagen de la tarjeta */}
-          <div className="imagen">
+          <div className="imagenEstadistica">
             <img src={srcImage} alt={title} />
           </div>
-          <div className="contienePregunta">
-            <div className="titulo">
+          <div className="contienePreguntaEstadistica">
+            <div className="tituloEstadistica">
               <h4>{title}</h4>
             </div>
             <div className="textoExplicativo">
