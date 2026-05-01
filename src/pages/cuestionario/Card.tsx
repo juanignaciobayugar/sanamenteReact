@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 
 interface ButtonData {
   value: string;
@@ -10,32 +9,16 @@ interface CardProps {
   imageSrc: string;
   buttons: ButtonData[];
   variant?: string;
-  onSelect?: (valor: string, imgSrc: string) => void;
+  onSelect?: (valor: string, imgSrc: string, index: number, variant?: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({ title, imageSrc, buttons, variant, onSelect }) => {
-  const [ultimoEstado, setUltimoEstado] = useState<string | null>(null);
 
-  useEffect(() => {
-    const guardado = localStorage.getItem("ultimoEstado");
-    if (guardado) {
-      const parsed = JSON.parse(guardado);
-      if (parsed.tipo === "estado") {
-        setUltimoEstado(parsed.valor);
-      }
+function Card({ title, imageSrc, buttons, variant, onSelect }: CardProps) {
+  const handleClick = (btn: ButtonData, index: number) => {
+    if (onSelect) {
+      // ahora pasamos todo lo necesario para reconstruir el botón
+      onSelect(btn.value, btn.imgSrc, index, variant);
     }
-  }, []);
-
-const handleClick = (valor: string, imgSrc: string) => {
-  if (onSelect) {
-    onSelect(valor, imgSrc);
-  }
-};
-
-  const handleClear = () => {
-    setUltimoEstado(null);
-    localStorage.removeItem("ultimoEstado");
-    if (onSelect) onSelect("", "");
   };
 
   return (
@@ -53,7 +36,13 @@ const handleClick = (valor: string, imgSrc: string) => {
               <button
                 key={index}
                 className={`btn-img${variant ?? ""} btn-img${index + 1}${variant ?? ""} btnEstado`}
-                onClick={() => handleClick(btn.value, btn.imgSrc)}
+                onClick={() => { if (btn.value === "nolose") {
+      // Abrir modal en vez de manejar como los demás
+      console.log("Abrir modal para 'No lo sé'");
+    } else {
+     handleClick(btn, index);
+    }
+  }}
               >
                 <img src={btn.imgSrc} alt={btn.value} />
               </button>

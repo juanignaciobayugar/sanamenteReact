@@ -1,8 +1,16 @@
-import React from "react";
 import Card from "./Card";
 
-const CardEstado: React.FC<{ onSelect?: (valor: string, imgSrc: string) => void }> = ({ onSelect }) => {
-  const estadoButtons = [
+interface ButtonData {
+  value: string;
+  imgSrc: string;
+}
+
+interface CardEstadoProps {
+  onSelect?: (valor: string, imgSrc: string, index?: number, variant?: string) => void;
+}
+
+function CardEstado({ onSelect }: CardEstadoProps) {
+  const estadoButtons: ButtonData[] = [
     { value: "bien", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
     { value: "regular", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
     { value: "mal", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
@@ -10,12 +18,12 @@ const CardEstado: React.FC<{ onSelect?: (valor: string, imgSrc: string) => void 
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
   ];
 
-  const handleSelect = (valor: string, imgSrc: string) => {
+  const handleSelect = (valor: string, imgSrc: string, index?: number, variant?: string) => {
     localStorage.setItem(
       "ultimoEstado",
-      JSON.stringify({ tipo: "estado", valor, imgSrc, timestamp: Date.now() })
+      JSON.stringify({ tipo: "estado", valor, imgSrc,index, timestamp: Date.now() })
     );
-    if (onSelect) onSelect(valor, imgSrc);
+    if (onSelect) onSelect(valor, imgSrc, index, variant);
   };
 
   return (
