@@ -20,7 +20,11 @@ function Header({ estado, dolor, energia, estadoImg, dolorImg, energiaImg, onCle
         <div className="Anim">
           <h4>Ánimo</h4>
           <div id="valorEstado">
-            {estadoImg ? <img src={estadoImg} alt={estado} /> : "-"}
+           {estadoImg ? (
+  <button className="btn-imge btnEstado">
+    <img src={estadoImg} alt={estado} />
+  </button>
+) : "-"}
             {estado && <button onClick={onClearEstado}>✖</button>}
           </div>
         </div>
@@ -28,7 +32,11 @@ function Header({ estado, dolor, energia, estadoImg, dolorImg, energiaImg, onCle
         <div className="Dolo">
           <h4>Dolor</h4>
           <div id="valorDolor">
-      {dolorImg ? <img src={dolorImg} alt={dolor} /> : "-"}
+      {dolorImg ? (
+  <button className="btn-imgd btnEstado">
+    <img src={dolorImg} alt={dolor} />
+  </button>
+) : "-"}
   {dolor && <button onClick={onClearDolor}>✖</button>}
           </div>
         </div>
@@ -36,7 +44,11 @@ function Header({ estado, dolor, energia, estadoImg, dolorImg, energiaImg, onCle
         <div className="Energi">
           <h4>Energía</h4>
           <div id="valorEnergia">
-            {energiaImg ? <img src={energiaImg} alt={energia} /> : "-"}
+           {energiaImg ? (
+  <button className="btn-imgc btnEstado">
+    <img src={energiaImg} alt={energia} />
+  </button>
+) : "-"}
             {energia && <button onClick={onClearEnergia}>✖</button>}
           </div>
         </div>

@@ -10,7 +10,12 @@ import MainContacto from "./pages/Contacto/MainContacto.tsx";
 import Main from "./pages/index/Main.tsx";
 import MainCuestionario from "./pages/cuestionario/MainCuestionario.tsx";
 
-
+interface RegistroCuestionario {
+  tipo: "estado" | "dolor" | "energia";
+  valor: string;
+  imgSrc: string;
+  timestamp: number;
+}
 
 function Central() {
   // ✅ Estados para los valores dinámicos
@@ -24,28 +29,29 @@ function Central() {
 
 
   // ✅ Al montar, recuperar lo que haya en localStorage
-  useEffect(() => {
-    const guardadoEstado = localStorage.getItem("ultimoEstado");
-    if (guardadoEstado) {
-      const parsed = JSON.parse(guardadoEstado);
-      if (parsed.tipo === "estado") setEstado(parsed.valor);
-      setEstadoImg(parsed.imgSrc); // Recuperar la imagen del estado
-    }
+useEffect(() => {
+  const guardadoEstado = localStorage.getItem("ultimoEstado");
+  if (guardadoEstado) {
+    const parsed: RegistroCuestionario = JSON.parse(guardadoEstado);
+    if (parsed.tipo === "estado") setEstado(parsed.valor);
+    setEstadoImg(parsed.imgSrc);
+  }
 
-    const guardadoDolor = localStorage.getItem("ultimoDolor");
-    if (guardadoDolor) {
-      const parsed = JSON.parse(guardadoDolor);
-      if (parsed.tipo === "dolor") setDolor(parsed.valor);
-      setDolorImg(parsed.imgSrc); 
-    }
+  const guardadoDolor = localStorage.getItem("ultimoDolor");
+  if (guardadoDolor) {
+    const parsed: RegistroCuestionario = JSON.parse(guardadoDolor);
+    if (parsed.tipo === "dolor") setDolor(parsed.valor);
+    setDolorImg(parsed.imgSrc);
+  }
 
-    const guardadoEnergia = localStorage.getItem("ultimoEnergia");
-    if (guardadoEnergia) {
-      const parsed = JSON.parse(guardadoEnergia);
-      if (parsed.tipo === "energia") setEnergia(parsed.valor);
-      setEnergiaImg(parsed.imgSrc);
-    }
-  }, []);
+  const guardadoEnergia = localStorage.getItem("ultimoEnergia");
+  if (guardadoEnergia) {
+    const parsed: RegistroCuestionario = JSON.parse(guardadoEnergia);
+    if (parsed.tipo === "energia") setEnergia(parsed.valor);
+    setEnergiaImg(parsed.imgSrc);
+  }
+}, []);
+
   return (
     <BrowserRouter>
       <div className="central">
@@ -79,11 +85,20 @@ function Central() {
           <Route
             path="/cuestionario"
             element={
-              <MainCuestionario
-                onEstadoSelect={setEstado}
-                onDolorSelect={setDolor}
-                onEnergiaSelect={setEnergia}            
-                />
+       <MainCuestionario
+  onEstadoSelect={(valor, imgSrc) => {
+    setEstado(valor);
+    setEstadoImg(imgSrc);
+  }}
+  onDolorSelect={(valor, imgSrc) => {
+    setDolor(valor);
+    setDolorImg(imgSrc);
+  }}
+  onEnergiaSelect={(valor, imgSrc) => {
+    setEnergia(valor);
+    setEnergiaImg(imgSrc);
+  }}
+/>
                 }
                 
           />

@@ -30,6 +30,12 @@
 }
 
 
+#valorEstado img {
+ width: 40px;
+ height: 40px;
+}
+
+
 /*div que se encuentra en header, representando energia*/
 #valorDolor {
   display: flex;        /* o block, según lo que quieras */
@@ -45,6 +51,11 @@
   width: 40px;        /* ancho fijo */
   height: 40px;        /* alto fijo */
 }
+
+#valorDolor img {
+ width: 40px;
+ height: 40px;
+} 
 
 .midia{
   width: 30px;
@@ -131,6 +142,11 @@
 #valorEnergia button {
   width: 40px;        /* ancho fijo */
   height: 40px;        /* alto fijo */
+}
+
+#valorEnergia img {
+ width: 40px;
+ height: 40px;
 }
 
 #diahoy {
