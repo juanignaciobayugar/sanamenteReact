@@ -1,59 +1,106 @@
 import "./tarjetaDinamica.css";
 
 interface HeaderProps {
-  estado: string;
-  dolor: string;
-  energia: string;
-  estadoImg: string; // Nueva prop para la imagen del estado
-  dolorImg: string; // Nueva prop para la imagen del dolor
-  energiaImg: string; // Nueva prop para la imagen de energía 
+  estado?: string;
+  dolor?: string;
+  energia?: string;
+  estadoImg?: string;
+  dolorImg?: string;
+  energiaImg?: string;
+  estadoIndex?: number;
+  dolorIndex?: number;
+  energiaIndex?: number;
+  estadoVariant?: string;
+  dolorVariant?: string;
+  energiaVariant?: string;
   onClearEstado: () => void;
   onClearDolor: () => void;
   onClearEnergia: () => void;
-
 }
-//funcion para mostrar los valores dinamicos del segmento cuestionario en el header...
-function Header({ estado, dolor, energia, estadoImg, dolorImg, energiaImg, onClearEstado, onClearDolor, onClearEnergia }: HeaderProps) {
+
+function Header({
+  estado,
+  dolor,
+  energia,
+  estadoImg,
+  dolorImg,
+  energiaImg,
+  estadoIndex,
+  dolorIndex,
+  energiaIndex,
+  estadoVariant,
+  dolorVariant,
+  energiaVariant,
+  onClearEstado,
+  onClearDolor,
+  onClearEnergia,
+}: HeaderProps) {
   return (
     <header>
-      <div id="tarjetaDinamica">
-        <div className="Anim">
-          <h4>Ánimo</h4>
+
+
+
+            <div id="tarjetaDinamica">
+          <div id="miDia" className="midia">
+            <h4>Mi día</h4>
+            <h4 id="diahoy"></h4>
+          </div>
+           <div className="Anim"> 
+            <div className ="recuadroH4">
+              <h4>Ánimo</h4>
+              </div>
           <div id="valorEstado">
-           {estadoImg ? (
-  <button className="btn-imge btnEstado">
+            {estadoImg ? (
+              <button
+    className={`btn-img${estadoVariant ?? ""} btn-img${(estadoIndex ?? 0) + 1}${estadoVariant ?? ""} btnEstado`}
+    onClick={onClearEstado}
+  >
     <img src={estadoImg} alt={estado} />
   </button>
 ) : "-"}
-            {estado && <button onClick={onClearEstado}>✖</button>}
           </div>
         </div>
 
         <div className="Dolo">
+           <div className ="recuadroH4">
           <h4>Dolor</h4>
+          </div>
           <div id="valorDolor">
-      {dolorImg ? (
-  <button className="btn-imgd btnEstado">
-    <img src={dolorImg} alt={dolor} />
-  </button>
-) : "-"}
-  {dolor && <button onClick={onClearDolor}>✖</button>}
+            {dolorImg ? (
+              <button
+                className={`btn-img${dolorVariant ?? ""} btn-img${(dolorIndex ?? 0) + 1}${dolorVariant ?? ""} btnEstado`}
+                onClick={onClearDolor}
+              >
+                <img src={dolorImg} alt={dolor} />
+              </button>
+            ) : (
+              "-"
+            )}
           </div>
         </div>
 
         <div className="Energi">
+          <div className ="recuadroH4">
           <h4>Energía</h4>
+          </div>
           <div id="valorEnergia">
-           {energiaImg ? (
-  <button className="btn-imgc btnEstado">
-    <img src={energiaImg} alt={energia} />
-  </button>
-) : "-"}
-            {energia && <button onClick={onClearEnergia}>✖</button>}
+            {energiaImg ? (
+              <button
+                className={`btn-img${energiaVariant ?? ""} btn-img${(energiaIndex ?? 0) + 1}${energiaVariant ?? ""} btnEstado`}
+                onClick={onClearEnergia}
+              >
+                <img src={energiaImg} alt={energia} />
+              </button>
+            ) : (
+              "-"
+            )}
           </div>
         </div>
       </div>
+
+      
     </header>
   );
 }
+
 export default Header;

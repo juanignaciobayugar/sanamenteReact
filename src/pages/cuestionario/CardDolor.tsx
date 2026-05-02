@@ -6,7 +6,7 @@ interface ButtonData {
 }
 
 interface CardDolorProps {
-  onSelect?: (valor: string, imgSrc: string, index?: number, variant?: string) => void;
+  onSelect?: (valor: string, imgSrc: string, index: number, variant?: string) => void;
 }
 
 function CardDolor({ onSelect }: CardDolorProps) {
@@ -23,7 +23,7 @@ function CardDolor({ onSelect }: CardDolorProps) {
     { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose.png" },
   ];
-const handleSelect = (valor: string, imgSrc: string, index?: number, variant?: string) => {
+const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
   localStorage.setItem(
     "ultimoDolor",
     JSON.stringify({ tipo: "dolor", valor, imgSrc, index, timestamp: Date.now() })

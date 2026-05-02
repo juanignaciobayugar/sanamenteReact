@@ -5,9 +5,9 @@ import CardEstado from "./CardCuestionario";
 import "./cuestionario.css"
 
 interface MainCuestionarioProps {
-  onEstadoSelect: (valor: string, imgSrc: string) => void;
-  onDolorSelect: (valor: string, imgSrc: string) => void;
-  onEnergiaSelect: (valor: string, imgSrc: string) => void;
+  onEstadoSelect: (valor: string, imgSrc: string, index: number,variant?: string) => void;
+  onDolorSelect: (valor: string, imgSrc: string, index: number, variant?: string) => void;
+  onEnergiaSelect: (valor: string, imgSrc: string, index: number, variant?: string) => void;
 }
 
 function MainCuestionario({ onEstadoSelect, onDolorSelect, onEnergiaSelect }: MainCuestionarioProps) {

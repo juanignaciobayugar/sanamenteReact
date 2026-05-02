@@ -6,7 +6,7 @@ interface ButtonData {
 }
 
 interface CardEnergiaProps {
-  onSelect?: (valor: string, imgSrc: string, index?: number, variant?: string) => void;
+  onSelect?: (valor: string, imgSrc: string, index: number, variant?: string) => void;
 }
 
 function CardEnergia({ onSelect }: CardEnergiaProps) {
@@ -26,7 +26,7 @@ function CardEnergia({ onSelect }: CardEnergiaProps) {
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/NO LO SE.png" },
   ];
 
-    const handleSelect = (valor: string, imgSrc: string, index?: number, variant?: string) => {
+    const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
     localStorage.setItem(
       "ultimoEnergia",
       JSON.stringify({ tipo: "energia", valor, imgSrc,index, timestamp: Date.now() })

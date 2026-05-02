@@ -6,7 +6,7 @@ interface ButtonData {
 }
 
 interface CardEstadoProps {
-  onSelect?: (valor: string, imgSrc: string, index?: number, variant?: string) => void;
+  onSelect?: (valor: string, imgSrc: string, index: number, variant?: string) => void;
 }
 
 function CardEstado({ onSelect }: CardEstadoProps) {
@@ -18,7 +18,7 @@ function CardEstado({ onSelect }: CardEstadoProps) {
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
   ];
 
-  const handleSelect = (valor: string, imgSrc: string, index?: number, variant?: string) => {
+  const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
     localStorage.setItem(
       "ultimoEstado",
       JSON.stringify({ tipo: "estado", valor, imgSrc,index, timestamp: Date.now() })

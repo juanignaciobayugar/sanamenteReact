@@ -14,6 +14,8 @@ interface RegistroCuestionario {
   tipo: "estado" | "dolor" | "energia";
   valor: string;
   imgSrc: string;
+  index: number;
+  variant: string;  
   timestamp: number;
 }
 
@@ -27,6 +29,13 @@ function Central() {
   const [dolorImg, setDolorImg] = useState<string>(""); // Nuevo estado para la imagen del dolor
   const [energiaImg, setEnergiaImg] = useState<string>(""); // Nuevo estado para la imagen de energía 
 
+    const [estadoIndex, setEstadoIndex] = useState<number>();
+  const [dolorIndex, setDolorIndex] = useState<number>();
+  const [energiaIndex, setEnergiaIndex] = useState<number>();
+
+  const [estadoVariant, setEstadoVariant] = useState<string>("");
+  const [dolorVariant, setDolorVariant] = useState<string>("");
+  const [energiaVariant, setEnergiaVariant] = useState<string>("");
 
   // ✅ Al montar, recuperar lo que haya en localStorage
 useEffect(() => {
@@ -35,13 +44,18 @@ useEffect(() => {
     const parsed: RegistroCuestionario = JSON.parse(guardadoEstado);
     if (parsed.tipo === "estado") setEstado(parsed.valor);
     setEstadoImg(parsed.imgSrc);
+    setEstadoIndex(parsed.index);
+    setEstadoVariant(parsed.variant);
   }
 
   const guardadoDolor = localStorage.getItem("ultimoDolor");
   if (guardadoDolor) {
     const parsed: RegistroCuestionario = JSON.parse(guardadoDolor);
-    if (parsed.tipo === "dolor") setDolor(parsed.valor);
+    if (parsed.tipo === "dolor")
+    setDolor(parsed.valor);
     setDolorImg(parsed.imgSrc);
+    setDolorIndex(parsed.index);
+    setDolorVariant(parsed.variant);
   }
 
   const guardadoEnergia = localStorage.getItem("ultimoEnergia");
@@ -49,64 +63,100 @@ useEffect(() => {
     const parsed: RegistroCuestionario = JSON.parse(guardadoEnergia);
     if (parsed.tipo === "energia") setEnergia(parsed.valor);
     setEnergiaImg(parsed.imgSrc);
+    setEnergiaIndex(parsed.index);
+    setEnergiaVariant(parsed.variant);
   }
 }, []);
 
   return (
     <BrowserRouter>
       <div className="central">
-        // Header con valores dinámicos
-       <Header
-        estado={estado}
-        dolor={dolor}
-        energia={energia}
-        estadoImg={estadoImg}
-         dolorImg={dolorImg}     
-         energiaImg={energiaImg}
-        onClearEstado={() => {
-          setEstado("");
-          localStorage.removeItem("ultimoEstado");
-        }}
-        onClearDolor={() => {
-          setDolor("");
-          localStorage.removeItem("ultimoDolor");
-        }}
-        onClearEnergia={() => {
-          setEnergia("");
-          localStorage.removeItem("ultimoEnergia");
-        }}
-      />
+        <Header
+          estado={estado}
+          estadoImg={estadoImg}
+          estadoIndex={estadoIndex}
+          estadoVariant={estadoVariant}
+          dolor={dolor}
+          dolorImg={dolorImg}
+          dolorIndex={dolorIndex}
+          dolorVariant={dolorVariant}
+          energia={energia}
+          energiaImg={energiaImg}
+          energiaIndex={energiaIndex}
+          energiaVariant={energiaVariant}
+          onClearEstado={() => {
+            setEstado("");
+            setEstadoImg("");
+            setEstadoIndex(undefined);
+            setEstadoVariant("");
+            localStorage.removeItem("ultimoEstado");
+          }}
+          onClearDolor={() => {
+            setDolor("");
+            setDolorImg("");
+            setDolorIndex(undefined);
+            setDolorVariant("");
+            localStorage.removeItem("ultimoDolor");
+          }}
+          onClearEnergia={() => {
+            setEnergia("");
+            setEnergiaImg("");
+            setEnergiaIndex(undefined);
+            setEnergiaVariant("");
+            localStorage.removeItem("ultimoEnergia");
+          }}
+        />
+
         <Nav />
 
         <Routes>
-        
-        <Route path="/" element={<Main />} /> {/* O tu Home */}
-        <Route path="/login" element={<MainLogin />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<MainLogin />} />
           <Route
             path="/cuestionario"
             element={
-       <MainCuestionario
-  onEstadoSelect={(valor, imgSrc) => {
-    setEstado(valor);
-    setEstadoImg(imgSrc);
-  }}
-  onDolorSelect={(valor, imgSrc) => {
-    setDolor(valor);
-    setDolorImg(imgSrc);
-  }}
-  onEnergiaSelect={(valor, imgSrc) => {
-    setEnergia(valor);
-    setEnergiaImg(imgSrc);
-  }}
-/>
-                }
-                
-          />
-<Route path="/estadisticas" element={<MainEstadistica />} />
-<Route path="/contacto" element={<MainContacto />} />
-          <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
+              <MainCuestionario
+                onEstadoSelect={(valor, imgSrc, index, variant) => {
+                  setEstado(valor);
+                  setEstadoImg(imgSrc);
+                  setEstadoIndex(index);
+                  if (variant) setEstadoVariant(variant);
 
-          {/* resto de rutas */}
+                  localStorage.setItem(
+                    "ultimoEstado",
+                    JSON.stringify({ tipo: "estado", valor, imgSrc, index, variant, timestamp: Date.now() })
+                  );
+                }}
+                onDolorSelect={(valor, imgSrc, index, variant) => {
+                  setDolor(valor);
+                  setDolorImg(imgSrc);
+                  setDolorIndex(index);
+                  if (variant) setDolorVariant(variant);
+
+                  localStorage.setItem(
+                    "ultimoDolor",
+                    JSON.stringify({ tipo: "dolor", valor, imgSrc, index, variant, timestamp: Date.now() })
+                  );
+                }}
+                onEnergiaSelect={(valor, imgSrc, index, variant) => {
+                  setEnergia(valor);
+                  setEnergiaImg(imgSrc);
+                  setEnergiaIndex(index);
+                  if (variant) setEnergiaVariant(variant);
+
+                  localStorage.setItem(
+                    "ultimoEnergia",
+                    JSON.stringify({ tipo: "energia", valor, imgSrc, index, variant, timestamp: Date.now() })
+                  );
+                }}
+              />
+            }
+          />
+          <Route path="/estadisticas" element={<MainEstadistica />} />
+          <Route path="/contacto" element={<MainContacto />} />
+          <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
+          <Route path="/calendario" element={<div>Calendario</div>} />
+          {/* Agrega aquí el resto de tus rutas */}
         </Routes>
 
         <Footer />
@@ -115,4 +165,4 @@ useEffect(() => {
   );
 }
 
-export default Central;
+export default Central
