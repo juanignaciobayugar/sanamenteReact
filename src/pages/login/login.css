@@ -146,3 +146,21 @@ main.contenido {
   background-color: #4CAF50;
   color: white;
 }
+
+.link-simulado {
+  color: #4CAF50;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Forzamos que se vea el mensaje cuando React lo renderiza */
+.mensaje-error, .mensaje-exito {
+  display: block !important; 
+  margin-top: 15px;
+}
+
+.mensaje-exito {
+  color: #2e7d32;
+  font-weight: bold;
+}

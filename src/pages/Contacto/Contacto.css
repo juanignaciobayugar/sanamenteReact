@@ -6,7 +6,7 @@
     font-family: 'Rubik', sans-serif;
 }
 
-/* Título superior - Fuera del flex para que ocupe todo el ancho */
+/* Título superior */
 .contacto-header h2 {
     font-size: 2rem;
     color: #333;
@@ -20,74 +20,52 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px; /* Espacio entre las dos columnas */
+    gap: 40px; 
     margin-top: 20px;
-  
 }
 
-/* Estilo base para las tarjetas (Cards) */
-.card {
+/* Estilo base para las tarjetas */
+.card, .form-container, .redes-container {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     padding: 25px;
-    border: 1px solid #f0f0f0;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+/* Títulos en azul (Resaltan como jerarquía principal) */
+.form-container h3, 
+.redes-container h3, 
+.seccion-detalle-contacto h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #3f51b5; 
+    font-weight: 600;
+    font-size: 1.5rem;
 }
 
 /* Columna Izquierda: Formulario */
 .form-container {
-    flex: 2; /* Ocupa más espacio que la derecha */
-    background-color: #fff;
+    flex: 2; 
 }
 
-/* 🌟 HOVER MEJORADO — mirada profesional */
-.form-container:hover {
-  transform: translateY(-10px) scale(1.02);
-
-  /* Borde visible */
-  border-color: #4b3f72;
-
-  /* Sombra profunda + glow suave violeta */
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.22),
-    0 0 12px rgba(130, 115, 230, 0.35);
-}
-
-.form-container h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-
-/* 🌟 HOVER MEJORADO — mirada profesional */
-.redes-container:hover {
-  transform: translateY(-10px) scale(1.02);
-
-  /* Borde visible */
-  border-color: #4b3f72;
-
-  /* Sombra profunda + glow suave violeta */
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.22),
-    0 0 12px rgba(130, 115, 230, 0.35);
-}
-
-.form-container h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-
-
-
-/* Columna Derecha: Redes e Info unificadas */
+/* Columna Derecha: Redes e Info */
 .redes-container {
-    flex: 1; /* Más angosta como en el original */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Hover para las tarjetas */
+.form-container:hover, 
+.redes-container:hover {
+    transform: translateY(-10px) scale(1.01);
+    border-color: #4b3f72;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15),
+        0 0 12px rgba(130, 115, 230, 0.2);
 }
 
 /* Estilos del Formulario */
@@ -110,6 +88,7 @@
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fafafa;
+    font-family: inherit;
 }
 
 .contact-form textarea {
@@ -117,9 +96,9 @@
     resize: none;
 }
 
-/* Botón zaul (Corregido según mi captura de HTML) */
+/* Botón de envío */
 .btn-enviar {
-    background-color: #3f51b5; /* El azul oscuro de tu foto */
+    background-color: #3f51b5; 
     color: white;
     padding: 15px;
     border: none;
@@ -127,13 +106,14 @@
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: 500;
 }
 
 .btn-enviar:hover {
     background-color: #303f9f;
 }
 
-/* Listas de iconos y redes */
+/* Info y redes (Color gris delicado para contraste) */
 .redes-lista, .info-lista {
     list-style: none;
     padding: 0;
@@ -146,28 +126,39 @@
     gap: 12px;
     margin-bottom: 15px;
     font-size: 1.1rem;
-    color: #3f51b5; /* Color azul para el texto de redes e info */
+    color: #4a4a4a; /* Gris grafito: contraste suave con el azul */
 }
 
 .redes-lista li a {
     text-decoration: none;
-    color: inherit;
-    font-weight: 500;
+    color: #4a4a4a; /* Hereda el gris para no competir con el título */
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
-/* Iconos (Font Awesome) */
+.redes-lista li a:hover {
+    color: #3f51b5; /* Brillo azul al pasar el mouse */
+}
+
+/* Iconos */
 .redes-lista i, .info-lista i {
     font-size: 1.3rem;
-    width: 25px; /* Para que todos los iconos queden alineados */
+    width: 25px; 
     text-align: center;
+    opacity: 0.9;
 }
 
-/* Colores específicos para iconos que resalten */
+/* Colores de iconos específicos */
 .fa-facebook { color: #1877f2; }
 .fa-instagram { color: #e4405f; }
 .fa-whatsapp { color: #25d366; }
+.fa-youtube { color: #FF0000; }
+.fa-tiktok { color: #000000; }
+.fa-envelope { color: #444; }
+.fa-clock { color: #3f51b5; }
+.fa-location-dot { color: blueviolet; }
 
-/* Responsive: Para celulares se pone uno debajo del otro */
+/* Responsive */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;

@@ -1,13 +1,8 @@
-import CardLogin from "./CardLogin"
-import "./login.css"
-
-// import './Main.css'
-
+import CardLogin from "./CardLogin";
+import "./login.css";
 function MainLogin() {
-  // Podés pasarle la prop onLogin si querés enganchar lógica
   const handleLogin = (email: string, password: string) => {
-    console.log("Login desde Main:", email, password);
-    // acá más adelante podés llamar al backend
+    console.log("Intento de login - Email:", email, "Password:", password); 
   };
 
   return (
@@ -17,4 +12,4 @@ function MainLogin() {
   );
 }
 
-export default MainLogin
+export default MainLogin;
