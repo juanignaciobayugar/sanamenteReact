@@ -1,0 +1,99 @@
+body {
+  font-family: Poppins, sans-serif;
+  background: #f4f7ff;
+  padding: 20px;
+}
+
+.calendar-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#monthYear {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.calendar-header button {
+  background: #4c6ef5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day-name {
+  text-align: center;
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+.day {
+  background: #e8ecff;
+  padding: 18px 10px;
+  border-radius: 12px;
+  min-height: 90px;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+}
+
+.day:hover {
+  background: #d7ddff;
+}
+
+.day.today {
+  background: #b9c6ff;
+  border: 2px solid #4c6ef5;
+}
+
+.event {
+  background: #4c6ef5;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event button.edit-btn {
+  background: #07bf41; 
+  color: #000;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.event button.delete-btn {
+  background: red;
+  color: #000;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}

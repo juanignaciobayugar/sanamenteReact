@@ -16,6 +16,7 @@ import MainLogin from "./pages/login/MainLogin.tsx";
 import MainSobreNosotros from "./pages/SobreNosotros/MainSobreNosotros.tsx";
 import MainContacto from "./pages/Contacto/MainContacto.tsx";
 import Main from "./pages/index/Main.tsx";
+import MainCalendario from "./pages/Calendario/MainCalendario.tsx";
 import MainCuestionario from "./pages/cuestionario/MainCuestionario.tsx";
 import ModalEstado from "./pages/cuestionario/ModalEstado.tsx";
 import ModalEnergia from "./pages/cuestionario/ModalEnergia.tsx";
@@ -283,7 +284,7 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
           <Route path="/estadisticas" element={<MainEstadistica />} />
           <Route path="/contacto" element={<MainContacto />} />
           <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
-          <Route path="/calendario" element={<div>Calendario</div>} />
+          <Route path="Calendario" element={<MainCalendario />} />
           {/* Agrega aquí el resto de tus rutas */}
         </Routes>
         {/* Modales */}
