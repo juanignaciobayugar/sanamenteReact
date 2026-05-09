@@ -24,10 +24,12 @@ function CardDolor({ onSelect }: CardDolorProps) {
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose.png" },
   ];
 const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
+  if (valor !== "nolose") {
   localStorage.setItem(
     "ultimoDolor",
     JSON.stringify({ tipo: "dolor", valor, imgSrc, index, timestamp: Date.now() })
   );
+}
   if (onSelect) onSelect(valor, imgSrc, index, variant);
 };
   return (

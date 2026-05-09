@@ -27,10 +27,12 @@ function CardEnergia({ onSelect }: CardEnergiaProps) {
   ];
 
     const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
-    localStorage.setItem(
+      if (valor !== "nolose") {
+      localStorage.setItem(
       "ultimoEnergia",
       JSON.stringify({ tipo: "energia", valor, imgSrc,index, timestamp: Date.now() })
     );
+  }
     if (onSelect) onSelect(valor, imgSrc, index, variant);
   };
 

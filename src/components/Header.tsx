@@ -1,5 +1,15 @@
 import "./tarjetaDinamica.css";
 
+
+const FechaHoy = () => {
+  const hoy = new Date().toLocaleDateString('es-AR', {
+    day: 'numeric',
+    month: 'long'
+  });
+
+  return <h4 id="diahoy">{hoy}</h4>;
+};
+
 interface HeaderProps {
   estado?: string;
   dolor?: string;
@@ -37,33 +47,33 @@ function Header({
 }: HeaderProps) {
   return (
     <header>
+      <img src="..\src\assets\imagenes\index\logo.png" alt="Logo de la empresa" className="logo" />
 
 
-
-            <div id="tarjetaDinamica">
-          <div id="miDia" className="midia">
-            <h4>Mi día</h4>
-            <h4 id="diahoy"></h4>
+      <div id="tarjetaDinamica">
+        <div id="miDia" className="midia">
+          <h4>Mi día</h4>
+            <FechaHoy />
+        </div>
+        <div className="Anim">
+          <div className="recuadroH4">
+            <h4>Ánimo</h4>
           </div>
-           <div className="Anim"> 
-            <div className ="recuadroH4">
-              <h4>Ánimo</h4>
-              </div>
           <div id="valorEstado">
             {estadoImg ? (
               <button
-    className={`btn-img${estadoVariant ?? ""} btn-img${(estadoIndex ?? 0) + 1}${estadoVariant ?? ""} btnEstado`}
-    onClick={onClearEstado}
-  >
-    <img src={estadoImg} alt={estado} />
-  </button>
-) : "-"}
+                className={`btn-img${estadoVariant ?? ""} btn-img${(estadoIndex ?? 0) + 1}${estadoVariant ?? ""} btnEstado`}
+                onClick={onClearEstado}
+              >
+                <img src={estadoImg} alt={estado} />
+              </button>
+            ) : "-"}
           </div>
         </div>
 
         <div className="Dolo">
-           <div className ="recuadroH4">
-          <h4>Dolor</h4>
+          <div className="recuadroH4">
+            <h4>Dolor</h4>
           </div>
           <div id="valorDolor">
             {dolorImg ? (
@@ -80,8 +90,8 @@ function Header({
         </div>
 
         <div className="Energi">
-          <div className ="recuadroH4">
-          <h4>Energía</h4>
+          <div className="recuadroH4">
+            <h4>Energía</h4>
           </div>
           <div id="valorEnergia">
             {energiaImg ? (
@@ -98,7 +108,7 @@ function Header({
         </div>
       </div>
 
-      
+
     </header>
   );
 }

@@ -1,4 +1,5 @@
 
+
 #tarjetaDinamica {
   display: flex;
   width: 240px;
@@ -13,12 +14,14 @@
 
 /*div que se encuentra en header, representando energia*/
 #valorEstado {
-  display: flex;        /* o block, según lo que quieras */
+  display: block;   /* o inline-block */
+  width: 40px;          /* o un ancho fijo */
   justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente si tiene altura fija */
   flex-wrap: wrap;      /* si puede haber más de un botón */
   overflow: hidden;     /* evita que se desborde */
   width: 100%;          /* o un ancho fijo */
+  margin-top: 3px;
+  margin: 0 auto;  
   margin-top: 3px;
 }
 
@@ -38,13 +41,14 @@
 
 /*div que se encuentra en header, representando energia*/
 #valorDolor {
-  display: flex;        /* o block, según lo que quieras */
+  display: block;   /* o inline-block */
+  width: 40px;          /* o un ancho fijo */
   justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente si tiene altura fija */
   flex-wrap: wrap;      /* si puede haber más de un botón */
   overflow: hidden;     /* evita que se desborde */
   width: 100%;          /* o un ancho fijo */
-   margin-top: 3px;
+  margin-top: 3px;
+  margin: 0 auto;  
 }
 
 #valorDolor button {
@@ -84,6 +88,9 @@
   font-size-adjust: none;
   padding: 1%;
   margin: 0;
+  margin-top: 3px;
+  align-items: center;
+  text-align: center;
 }
 
 .Anim H4{
@@ -131,11 +138,14 @@
 
 /*div que se encuentra en header, representando energia*/
 #valorEnergia {
-  display: flex;        /* o block, según lo que quieras */
+  display: block;   /* o inline-block */
+  width: 40px;          /* o un ancho fijo */
   justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente si tiene altura fija */
+  flex-wrap: wrap;      /* si puede haber más de un botón */
   overflow: hidden;     /* evita que se desborde */
   width: 100%;          /* o un ancho fijo */
+  margin-top: 3px;
+  margin: 0 auto;  
  margin-top: 3px;
 }
 

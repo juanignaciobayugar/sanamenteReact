@@ -18,11 +18,16 @@ function CardEstado({ onSelect }: CardEstadoProps) {
     { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
   ];
 
+
   const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
-    localStorage.setItem(
-      "ultimoEstado",
-      JSON.stringify({ tipo: "estado", valor, imgSrc,index, timestamp: Date.now() })
-    );
+    if (valor !== "nolose") {
+      localStorage.setItem(
+  
+        "ultimoEstado",
+        JSON.stringify({ tipo: "estado", valor, imgSrc,index, timestamp: Date.now() })
+      );
+      
+    }
     if (onSelect) onSelect(valor, imgSrc, index, variant);
   };
 

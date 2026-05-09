@@ -14,8 +14,9 @@ interface CardProps {
 
 
 function Card({ title, imageSrc, buttons, variant, onSelect }: CardProps) {
+
   const handleClick = (btn: ButtonData, index: number) => {
-    if (onSelect) {
+     if (onSelect) {
       // ahora pasamos todo lo necesario para reconstruir el botón
       onSelect(btn.value, btn.imgSrc, index, variant);
     }
@@ -36,17 +37,16 @@ function Card({ title, imageSrc, buttons, variant, onSelect }: CardProps) {
               <button
                 key={index}
                 className={`btn-img${variant ?? ""} btn-img${index + 1}${variant ?? ""} btnEstado`}
-                onClick={() => { if (btn.value === "nolose") {
-      // Abrir modal en vez de manejar como los demás
-      console.log("Abrir modal para 'No lo sé'");
-    } else {
+                onClick={() => { 
      handleClick(btn, index);
-    }
+    
   }}
               >
                 <img src={btn.imgSrc} alt={btn.value} />
               </button>
             ))}
+
+
           </div>
         </div>
       </div>
