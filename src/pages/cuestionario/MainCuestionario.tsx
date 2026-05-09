@@ -1,31 +1,23 @@
-import Card from "./Card";
+
 import CardEnergia from "./CardEnergia";
 import CardDolor from "./CardDolor";
+import CardEstado from "./CardCuestionario";
 import "./cuestionario.css"
 
-function MainCuestionario() {
+interface MainCuestionarioProps {
+  onEstadoSelect: (valor: string, imgSrc: string, index: number,variant?: string) => void;
+  onDolorSelect: (valor: string, imgSrc: string, index: number, variant?: string) => void;
+  onEnergiaSelect: (valor: string, imgSrc: string, index: number, variant?: string) => void;
+}
+
+function MainCuestionario({ onEstadoSelect, onDolorSelect, onEnergiaSelect }: MainCuestionarioProps) {
   return (
     <main className="contenido">
-       <div className="contenidoPrincipal">
-      <Card
-        title="Mi estado de ánimo hoy está:"
-        imageSrc="../src/assets/imagenes/cuestionario/tarjetaAnimo/Sin título-1.png"
-        buttons={[
-          { value: "bien", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
-          { value: "regular", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
-          { value: "mal", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
-          { value: "estupendo", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
-          { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
-        ]}
-
-      />
-
-
-    <CardEnergia />
-
-    <CardDolor />
-
-</div>
+      <div className="contenidoPrincipal">
+        <CardEstado onSelect={onEstadoSelect} />
+        <CardEnergia onSelect={onEnergiaSelect} />
+        <CardDolor onSelect={onDolorSelect} />
+      </div>
     </main>
   );
 }
