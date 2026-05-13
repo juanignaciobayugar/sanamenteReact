@@ -3,13 +3,14 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif; /* Tipografía unificada */
 }
 
 /* Título superior */
 .contacto-header h2 {
+    font-family: 'Rubik', sans-serif;
     font-size: 2rem;
-    color: #333;
+    color:  #3f51b5 !important;
     margin-bottom: 30px;
     text-align: left;
 }
@@ -34,10 +35,11 @@
     transition: all 0.3s ease;
 }
 
-/* Títulos en azul (Resaltan como jerarquía principal) */
+/* Títulos con el color principal #3f51b5 */
 .form-container h3, 
 .redes-container h3, 
 .seccion-detalle-contacto h3 {
+    font-family: 'Rubik', sans-serif;
     margin-top: 0;
     margin-bottom: 20px;
     color: #3f51b5; 
@@ -61,11 +63,9 @@
 /* Hover para las tarjetas */
 .form-container:hover, 
 .redes-container:hover {
-    transform: translateY(-10px) scale(1.01);
-    border-color: #4b3f72;
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.15),
-        0 0 12px rgba(130, 115, 230, 0.2);
+    transform: translateY(-5px);
+    border-color: #3f51b5;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* Estilos del Formulario */
@@ -75,6 +75,7 @@
 }
 
 .contact-form label {
+    font-family: 'Rubik', sans-serif;
     font-weight: 500;
     margin-bottom: 8px;
     color: #444;
@@ -82,13 +83,13 @@
 
 .contact-form input, 
 .contact-form textarea {
+    font-family: 'Rubik', sans-serif;
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fafafa;
-    font-family: inherit;
 }
 
 .contact-form textarea {
@@ -96,8 +97,9 @@
     resize: none;
 }
 
-/* Botón de envío */
+/* Botón de envío (Mismo color que los títulos) */
 .btn-enviar {
+    font-family: 'Rubik', sans-serif;
     background-color: #3f51b5; 
     color: white;
     padding: 15px;
@@ -109,11 +111,11 @@
     font-weight: 500;
 }
 
-.btn-enviar:hover {
-    background-color: #303f9f;
+.btn-enviar {
+    background-color: #3f51b5 !important; 
 }
 
-/* Info y redes (Color gris delicado para contraste) */
+/* Info y redes (Iconos en gris acorde a salud) */
 .redes-lista, .info-lista {
     list-style: none;
     padding: 0;
@@ -126,44 +128,33 @@
     gap: 12px;
     margin-bottom: 15px;
     font-size: 1.1rem;
-    color: #4a4a4a; /* Gris grafito: contraste suave con el azul */
+    color: #4a4a4a;
 }
 
 .redes-lista li a {
     text-decoration: none;
-    color: #4a4a4a; /* Hereda el gris para no competir con el título */
-    font-weight: 400;
+    color: #4a4a4a;
     transition: color 0.3s ease;
 }
 
 .redes-lista li a:hover {
-    color: #3f51b5; /* Brillo azul al pasar el mouse */
+    color: #3f51b5;
 }
 
-/* Iconos */
+/* Iconos unificados en color Gris Salud */
 .redes-lista i, .info-lista i {
     font-size: 1.3rem;
     width: 25px; 
     text-align: center;
+    color: #7f8c8d; /* Gris profesional unificado */
     opacity: 0.9;
 }
-
-/* Colores de iconos específicos */
-.fa-facebook { color: #1877f2; }
-.fa-instagram { color: #e4405f; }
-.fa-whatsapp { color: #25d366; }
-.fa-youtube { color: #FF0000; }
-.fa-tiktok { color: #000000; }
-.fa-envelope { color: #444; }
-.fa-clock { color: #3f51b5; }
-.fa-location-dot { color: blueviolet; }
 
 /* Responsive */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
     }
-    
     .form-container, .redes-container {
         width: 100%;
     }
