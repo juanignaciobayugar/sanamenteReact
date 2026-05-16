@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface CardLoginProps {
   onLogin?: (email: string, password: string) => void;
@@ -10,15 +10,40 @@ function CardLogin(props: CardLoginProps) {
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState(""); 
   
-  // --- Estados de control de vista ---
+  // --- ESTADOS NUEVOS (SOLO PARA REGISTRO) ---
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
+  const [edad, setEdad] = useState<number | "">("");
+
+  // --- ESTADOS DE CONTROL DE VISTA ---
   const [modo, setModo] = useState<"login" | "registro" | "exito">("login"); 
   const [error, setError] = useState("");
+
+  // Cálculo automático de la edad basado en la fecha de nacimiento
+  useEffect(() => {
+    if (fechaNacimiento) {
+      const hoy = new Date();
+      const fechaNac = new Date(fechaNacimiento);
+      let edadCalculada = hoy.getFullYear() - fechaNac.getFullYear();
+      const mes = hoy.getMonth() - fechaNac.getMonth();
+
+      // Ajuste si el cumple aún no pasó en el año actual
+      if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+        edadCalculada--;
+      }
+
+      setEdad(edadCalculada >= 0 ? edadCalculada : 0);
+    } else {
+      setEdad("");
+    }
+  }, [fechaNacimiento]);
 
   // Función para limpiar todos los inputs
   const limpiarFormulario = () => {
     setEmail("");
     setPassword("");
     setNombre("");
+    setFechaNacimiento("");
+    setEdad("");
     setError("");
   };
 
@@ -26,7 +51,7 @@ function CardLogin(props: CardLoginProps) {
     setError("");
 
     if (modo === "login") {
-      // Validación para el Login
+      // Validación estándar de Login
       if (!email || !password) {
         setError("❌ Por favor, ingresa tu correo y contraseña");
         return;
@@ -36,26 +61,24 @@ function CardLogin(props: CardLoginProps) {
         props.onLogin(email, password);
       } else {
         console.log("Iniciando sesión con:", email);
-        alert("¡Sesión iniciada! (Checkeá la consola)");
+        alert("¡Sesión iniciada!");
       }
 
     } else if (modo === "registro") {
-      // Validación para el Registro
-      if (!email || !password || !nombre) {
+      // Validación de Registro incluyendo los nuevos campos obligatorios
+      if (!email || !password || !nombre || !fechaNacimiento) {
         setError("❌ Por favor completa todos los campos para registrarte");
         return;
       }
       
-      console.log("Registrado con éxito:", { nombre, email });
+      console.log("Registrado con éxito:", { nombre, email, fechaNacimiento, edad });
       
-      // Importante: Limpieza los datos antes de ir a la pantalla de éxito
-      // Así, cuando el usuario vuelva al login, los campos estarán vacíos.
       limpiarFormulario(); 
       setModo("exito"); 
     }
   };
 
-  // 1. Vista de éxito (Agradecimiento)
+  // Vista de éxito
   if (modo === "exito") {
     return (
       <div className="form-container">
@@ -68,21 +91,45 @@ function CardLogin(props: CardLoginProps) {
     );
   }
 
-  // 2. Vista de formulario (Login o Registro)
   return (
     <section id="login">
       <div className="form-container">
         <h2>{modo === "login" ? "Iniciar sesión" : "Crear cuenta"}</h2>
 
+        {/* CAMPOS EXCLUSIVOS DE REGISTRO */}
         {modo === "registro" && (
-          <input
-            type="text"
-            placeholder="Nombre y Apellido"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
+          <>
+            <input
+              type="text"
+              placeholder="Nombre y Apellido"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+            
+            <div className="input-group-especial">
+              <label>Fecha de Nacimiento:</label>
+              <input
+                type="date"
+                max={new Date().toISOString().split("T")[0]}
+                value={fechaNacimiento}
+                onChange={(e) => setFechaNacimiento(e.target.value)}
+              />
+            </div>
+
+            <div className="input-group-especial">
+              <label>Edad (automática):</label>
+              <input
+                type="number"
+                placeholder="Edad"
+                value={edad}
+                readOnly 
+                style={{ backgroundColor: "#f4f4f4", cursor: "not-allowed" }}
+              />
+            </div>
+          </>
         )}
 
+        {/* CAMPOS COMUNES (LOGIN Y REGISTRO) */}
         <input
           type="email"
           placeholder="Correo electrónico"
@@ -107,7 +154,7 @@ function CardLogin(props: CardLoginProps) {
             className="link-simulado" 
             style={{ color: "#4CAF50", cursor: "pointer", textDecoration: "underline" }}
             onClick={() => {
-              limpiarFormulario(); // Limpiamos al cambiar de pestaña para evitar confusiones
+              limpiarFormulario();
               setModo(modo === "login" ? "registro" : "login");
             }}
           >
