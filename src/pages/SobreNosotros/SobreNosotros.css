@@ -1,4 +1,6 @@
-/* Contenedor principal */
+/* ==========================================================================
+   Contenedor principal y estructura
+   ========================================================================== */
 .section-box {
   max-width: 950px;
   margin: 0 auto;
@@ -42,54 +44,86 @@
   }
 }
 
-/* ESTILO TARJETAS */
+/* ==========================================================================
+   Estilo de las Tarjetas
+   ========================================================================== */
 .cardSobreNosotros {
   background: #fff;
   padding: 22px;
   border-radius: 14px;
-
-  /* Nueva base más suave */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-
-  /* Para que el hover se note más */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Base suave */
   border: 2px solid transparent;
-
   transition: all 0.3s ease;
 }
 
-.card h3 {
+/* Selectores de texto corregidos */
+.cardSobreNosotros h3 {
   font-size: 1.35rem;
   color: #4b3f72;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
-.card p {
+.cardSobreNosotros p {
   font-size: 1rem;
   line-height: 1.45;
-}
-
-/* Icono en las tarjetas */
-.card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  display: inline-block;
+  color: #555;
 }
 
 /* 🌟 HOVER MEJORADO */
 .cardSobreNosotros:hover {
   transform: translateY(-10px) scale(1.02);
-
-  /* Borde visible */
   border-color: #4b3f72;
-
-  /* Sombra profunda + glow suave violeta */
   box-shadow:
-    0 10px 25px rgba(0,0,0,0.22),
-    0 0 12px rgba(130, 115, 230, 0.35);
+    0 10px 25px rgba(0,0,0,0.15),
+    0 0 12px rgba(130, 115, 230, 0.2);
 }
 
+/* ==========================================================================
+   MODIFICADO: Estilo puro para los Iconos Vectoriales
+   ========================================================================== */
+.card-icon {
+  font-size: 2.5rem; /* Tamaño idéntico al de la imagen de referencia */
+  margin-bottom: 14px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
 
-/* Eliminar texto "Volver" en header interno */
+/* Efecto de agrandado al pasar el mouse por la tarjeta */
+.cardSobreNosotros:hover .card-icon {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   NUEVO: Colores puros en Tonos Pastel (Sin fondos)
+   ========================================================================== */
+.txt-celeste-pastel {
+  color: #90caf9; /* Celeste pastel puro */
+}
+
+.txt-rosa-pastel {
+  color: #f28482; /* Rosa/Rojo pastel puro */
+}
+
+.txt-verde-pastel {
+  color: #81c784; /* Verde salud pastel puro */
+}
+
+.txt-amarillo-pastel {
+  color: #fbd561; /* Amarillo/Crema pastel puro */
+}
+
+.txt-violeta-pastel {
+  color: #b39ddb; /* Violeta/Lila pastel puro */
+}
+
+.txt-naranja-pastel {
+  color: #f4a261; /* Naranja/Destello pastel puro */
+}
+
+/* ==========================================================================
+   Auxiliares obligatorios
+   ========================================================================== */
 .subpage-header .back-btn,
 .subpage-header a.back-btn {
   display: none !important;
