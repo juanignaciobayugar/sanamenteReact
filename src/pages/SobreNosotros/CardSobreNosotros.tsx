@@ -1,5 +1,3 @@
-import React from 'react';
-
 // 1. Definimos qué forma tienen las props
 interface CardProps {
   icon: string;        // Ahora recibe las clases del ícono (ej: "fas fa-users")
