@@ -1,6 +1,4 @@
-/* ============================
-   Estilos generales
-=============================== */
+/* Estilos generales */
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
@@ -51,9 +49,7 @@ main.contenido {
   align-items: center;
 }
 
-/* ============================
-   Formularios
-=============================== */
+/* Formularios */
 .form-container {
   background: #fff;
   padding: 30px;
