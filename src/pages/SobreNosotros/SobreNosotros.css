@@ -1,6 +1,4 @@
-/* ==========================================================================
-   Contenedor principal y estructura
-   ========================================================================== */
+/* Contenedor principal y estructura */
 .section-box {
   max-width: 950px;
   margin: 0 auto;
@@ -28,7 +26,7 @@
   text-decoration: underline;
 }
 
-/* 🔹 GRID 2 columnas en escritorio */
+/* Grid 2 columnas en escritorio */
 .sobre-cards {
   display: grid;
   width: 100%;
@@ -44,9 +42,7 @@
   }
 }
 
-/* ==========================================================================
-   Estilo de las Tarjetas
-   ========================================================================== */
+/* Estilo de las Tarjetas */
 .cardSobreNosotros {
   background: #fff;
   padding: 22px;
@@ -70,7 +66,7 @@
   color: #555;
 }
 
-/* 🌟 HOVER MEJORADO */
+/* Hover mejorado */
 .cardSobreNosotros:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: #4b3f72;
@@ -79,9 +75,7 @@
     0 0 12px rgba(130, 115, 230, 0.2);
 }
 
-/* ==========================================================================
-   MODIFICADO: Estilo puro para los Iconos Vectoriales
-   ========================================================================== */
+/* Estilo puro para los Iconos Vectoriales */
 .card-icon {
   font-size: 2.5rem; /* Tamaño idéntico al de la imagen de referencia */
   margin-bottom: 14px;
@@ -94,9 +88,7 @@
   transform: scale(1.1);
 }
 
-/* ==========================================================================
-   NUEVO: Colores puros en Tonos Pastel (Sin fondos)
-   ========================================================================== */
+/* Colores puros en Tonos Pastel */
 .txt-celeste-pastel {
   color: #90caf9; /* Celeste pastel puro */
 }
@@ -121,9 +113,7 @@
   color: #f4a261; /* Naranja/Destello pastel puro */
 }
 
-/* ==========================================================================
-   Auxiliares obligatorios
-   ========================================================================== */
+/* Auxiliares obligatorios */
 .subpage-header .back-btn,
 .subpage-header a.back-btn {
   display: none !important;

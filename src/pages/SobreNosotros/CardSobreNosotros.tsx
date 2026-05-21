@@ -6,7 +6,7 @@ interface CardProps {
   clasePastel: string; // Clase CSS para pintarlo en tono pastel
 }
 
-// 2. Le decimos al componente que use esa Interface
+// 2. Le decimos al componente que use esta Interface
 const CardSobreNosotros = ({ icon, title, description, clasePastel }: CardProps) => {
   return (
     <div className="cardSobreNosotros">

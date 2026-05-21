@@ -6,7 +6,7 @@
     font-family: 'Rubik', sans-serif; /* Tipografía unificada */
 }
 
-/* Encabezado - MODIFICADO: Centrado absoluto del título */
+/* Encabezado - Modificado: Centrado absoluto del título */
 .contacto-header {
     display: flex;
     justify-content: center;

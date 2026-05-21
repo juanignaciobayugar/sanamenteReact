@@ -7,7 +7,7 @@ function MainSobreNosotros() {
       <div className="section-box">
         <section className="sobre-cards">
           
-          {/* 👥 TARJETA 1 - ¿Quiénes somos? (Azul/Celeste Pastel) */}
+          {/* 👥 Tarjeta 1 - ¿Quiénes somos? (Azul/Celeste Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-users" 
             title="¿Quiénes somos?" 
@@ -15,7 +15,7 @@ function MainSobreNosotros() {
             clasePastel="txt-celeste-pastel"
           />
 
-          {/* ❤️ TARJETA 2 - Salud y bienestar (Rosa/Rojo Pastel) */}
+          {/* ❤️ Tarjeta 2 - Salud y bienestar (Rosa/Rojo Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-heart" 
             title="Salud y Bienestar" 
@@ -23,7 +23,7 @@ function MainSobreNosotros() {
             clasePastel="txt-rosa-pastel"
           />
 
-          {/* 📈 TARJETA 3 - Evolución personal (Verde Pastel) */}
+          {/* 📈 Tarjeta 3 - Evolución personal (Verde Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-chart-line" 
             title="Evolución Personal" 
@@ -31,7 +31,7 @@ function MainSobreNosotros() {
             clasePastel="txt-verde-pastel"
           />
 
-          {/* 📚 TARJETA 4 - Información (Amarillo Pastel) */}
+          {/* 📚 Tarjeta 4 - Información (Amarillo Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-book" 
             title="Información" 
@@ -39,7 +39,7 @@ function MainSobreNosotros() {
             clasePastel="txt-amarillo-pastel"
           />
 
-          {/* 🤝 TARJETA 5 - Acompañamiento (Violeta/Lila Pastel) */}
+          {/* 🤝 Tarjeta 5 - Acompañamiento (Violeta/Lila Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-hands-helping" 
             title="Acompañamiento" 
@@ -47,7 +47,7 @@ function MainSobreNosotros() {
             clasePastel="txt-violeta-pastel"
           />
 
-         {/* ✨ TARJETA 6 - Nuestra Misión (Naranja/Glow Pastel) */}
+         {/* ✨ Tarjeta - Nuestra Misión (Naranja/Glow Pastel) */}
 <CardSobreNosotros 
   icon="fas fa-star" // Cambiado a estrella clásica para asegurar compatibilidad total
   title="Nuestra Misión" 

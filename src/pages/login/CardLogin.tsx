@@ -10,11 +10,11 @@ function CardLogin(props: CardLoginProps) {
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState(""); 
   
-  // --- ESTADOS NUEVOS (SOLO PARA REGISTRO) ---
+  // --- Estados nuevos (Solo para registro) ---
   const [fechaNacimiento, setFechaNacimiento] = useState("");
   const [edad, setEdad] = useState<number | "">("");
 
-  // --- ESTADOS DE CONTROL DE VISTA ---
+  // --- Estados de control de vista ---
   const [modo, setModo] = useState<"login" | "registro" | "exito">("login"); 
   const [error, setError] = useState("");
 
@@ -31,7 +31,14 @@ function CardLogin(props: CardLoginProps) {
         edadCalculada--;
       }
 
-      setEdad(edadCalculada >= 0 ? edadCalculada : 0);
+      const edadFinal = edadCalculada >= 0 ? edadCalculada : 0;
+      setEdad(edadFinal);
+
+      // Lógica de control: Si el usuario cambia la fecha y ahora es mayor, 
+      // limpiamos el error de forma automática para mejorar la experiencia.
+      if (edadFinal >= 18) {
+        setError("");
+      }
     } else {
       setEdad("");
     }
@@ -65,12 +72,19 @@ function CardLogin(props: CardLoginProps) {
       }
 
     } else if (modo === "registro") {
-      // Validación de Registro incluyendo los nuevos campos obligatorios
+      // 1. Validación de campos obligatorios
       if (!email || !password || !nombre || !fechaNacimiento) {
         setError("❌ Por favor completa todos los campos para registrarte");
         return;
       }
       
+      // Filtro de edad: Bloqueo estricto si es menor de 18 años
+      if (typeof edad === "number" && edad < 18) {
+        setError("❌ Lo sentimos, tenés que ser mayor de 18 años para registrarte en la plataforma.");
+        return; // Frena la ejecución, no permite avanzar al estado de éxito ni enviar a la API
+      }
+      
+      // 3. Si pasa todos los filtros, el registro continúa con éxito
       console.log("Registrado con éxito:", { nombre, email, fechaNacimiento, edad });
       
       limpiarFormulario(); 
@@ -110,6 +124,7 @@ function CardLogin(props: CardLoginProps) {
               <label>Fecha de Nacimiento:</label>
               <input
                 type="date"
+                // Mantiene el bloqueo nativo del calendario para no elegir fechas futuras
                 max={new Date().toISOString().split("T")[0]}
                 value={fechaNacimiento}
                 onChange={(e) => setFechaNacimiento(e.target.value)}
@@ -129,7 +144,7 @@ function CardLogin(props: CardLoginProps) {
           </>
         )}
 
-        {/* CAMPOS COMUNES (LOGIN Y REGISTRO) */}
+        {/* Campos comunes (Login y registro) */}
         <input
           type="email"
           placeholder="Correo electrónico"
