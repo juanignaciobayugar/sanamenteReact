@@ -4,9 +4,10 @@ import img3 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 1.png";
 import img4 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 4.png";
 import img5 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 5.png";
 import img6 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 6.png";
+import { RutaProtegida } from "./components/RutaProtegida.tsx"; // El guardia que creamos recién
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -176,12 +177,13 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
     { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
 ]
 
-
+const [estaLogueado, setEstaLogueado] = useState<boolean>(!!localStorage.getItem("token_jwt"));
 
   return (
     <BrowserRouter>
       <div className="central">
         <Header
+        estaLogueado={estaLogueado} // 🔥 AGREGÁ ESTA LÍNEA ACÁ ARRIBA DE TODO DEL HEADER
           estado={estado}
           estadoImg={estadoImg}
           estadoIndex={estadoIndex}
@@ -221,7 +223,19 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
 
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/login" element={<MainLogin />} />
+
+<Route 
+  path="/login" 
+  element={
+    <MainLogin 
+      onLogin={() => {
+        setEstaLogueado(true); // Solo cambia el estado para prender el Header
+      }} 
+    />
+  } 
+/>
+
+          <Route element={<RutaProtegida />}>
           <Route
             path="/cuestionario"
             element={
@@ -274,10 +288,6 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
                     JSON.stringify({ tipo: "energia", valor, imgSrc, index, variant, timestamp: Date.now() })
                   );}
                 }}
-
-
-
-
               />
             }
           />
@@ -285,6 +295,7 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
           <Route path="/contacto" element={<MainContacto />} />
           <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
           <Route path="Calendario" element={<MainCalendario />} />
+          </Route> //cierro ruta protegida, todo lo que esté adentro de esto, va a necesitar el token para ser accedido
           {/* Agrega aquí el resto de tus rutas */}
         </Routes>
         {/* Modales */}

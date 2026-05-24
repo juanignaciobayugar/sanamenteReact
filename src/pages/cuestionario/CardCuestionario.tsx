@@ -22,12 +22,15 @@ function CardEstado({ onSelect }: CardEstadoProps) {
   const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
     if (valor !== "nolose") {
       localStorage.setItem(
-  
+
         "ultimoEstado",
-        JSON.stringify({ tipo: "estado", valor, imgSrc,index, timestamp: Date.now() })
+        JSON.stringify({ tipo: "estado", valor, imgSrc, index, timestamp: Date.now() })
       );
       
     }
+
+    
+    
     if (onSelect) onSelect(valor, imgSrc, index, variant);
   };
 

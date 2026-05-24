@@ -11,6 +11,7 @@ const FechaHoy = () => {
 };
 
 interface HeaderProps {
+  estaLogueado: boolean; // 1. 🔥 AGREGAMOS LA NUEVA PROP EN LA INTERFACE
   estado?: string;
   dolor?: string;
   energia?: string;
@@ -29,6 +30,7 @@ interface HeaderProps {
 }
 
 function Header({
+  estaLogueado, // 2. 🔥 LA RECIBIMOS ACÁ ADENTRO
   estado,
   dolor,
   energia,
@@ -49,7 +51,7 @@ function Header({
     <header>
       <img src="..\src\assets\imagenes\index\logo.png" alt="Logo de la empresa" className="logo" />
 
-
+{estaLogueado && (
       <div id="tarjetaDinamica">
         <div id="miDia" className="midia">
           <h4>Mi día</h4>
@@ -108,7 +110,7 @@ function Header({
         </div>
       </div>
 
-
+)}
     </header>
   );
 }
