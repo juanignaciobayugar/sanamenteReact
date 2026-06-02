@@ -1,5 +1,4 @@
 import Card from "./Card";
-
 interface ButtonData {
   value: string;
   imgSrc: string;
@@ -29,9 +28,49 @@ const handleSelect = (valor: string, imgSrc: string, index: number, variant?: st
     "ultimoDolor",
     JSON.stringify({ tipo: "dolor", valor, imgSrc, index, timestamp: Date.now() })
   );
-}
-  if (onSelect) onSelect(valor, imgSrc, index, variant);
+
+    if (onSelect) onSelect(valor, imgSrc, index, variant);
+ // 2. EN SEGUNDO PLANO: Tu lógica que funciona perfecto
+    // ==========================================
+    const token = localStorage.getItem('token_jwt');
+    if (!token) {
+      console.warn("No se encontró el token JWT");
+      return; 
+    }
+
+    // Armamos el objeto EXACTAMENTE igual al que te funcionó
+    const bodyPayload = {
+      fecha: new Date().toISOString().split('T')[0],
+      estadoDolor: Number(valor)
+    };
+
+    // Disparamos la petición al backend en segundo plano
+    fetch("http://localhost:3000/daily-records/save-click", {
+      method: "POST",
+      headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}` },
+      body: JSON.stringify(bodyPayload)
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Error en respuesta de servidor");
+      return res.json();
+    })
+    .then(data => {
+      console.log("✅ Respuesta del servidor (CardCuestionario):", data);
+    })
+    .catch(err => {
+      console.error("❌ Error silencioso al guardar desde CardCuestionario:", err);
+    });
+    // ==========================================
+
+  } else {
+    // Si entra por el "nolose", también ejecuta el onSelect rápido
+    if (onSelect) onSelect(valor, imgSrc, index, variant);
+  }
 };
+
+
+
+
   return (
     <Card
       title="¿Qué tan fuerte es el nivel de dolor que tengo?"
