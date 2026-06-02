@@ -66,34 +66,59 @@ body {
   border: 2px solid #4c6ef5;
 }
 
+/* --- SECCIÓN MODIFICADA CON PALETA PASTEL --- */
+
 .event {
-  background: #4c6ef5;
-  color: white;
-  padding: 6px;
+  background: #cbd5e1; /* Gris azulado pastel suave para el fondo del evento */
+  color: #334155;     /* Texto oscuro para que tenga buena lectura */
+  padding: 8px;
   border-radius: 8px;
   margin-top: 6px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
+/* Alineación para que los botones no se peguen */
+.event-buttons {
+  display: flex;
+  gap: 6px; 
+  margin-top: 2px;
+}
+
+/* Botón Editar: Verde Menta Pastel */
 .event button.edit-btn {
-  background: #07bf41; 
-  color: #000;
+  background:#FFEBA5; 
+  color: #3c3a3a; /* Texto verde oscuro accesible */
   border: none;
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 11px;
+  flex: 1; /* Distribuye el ancho por igual */
+  transition: background 0.2s;
 }
 
+.event button.edit-btn:hover {
+  background: #f8fa9e; /* Sube un tono el color al pasar el mouse */
+}
+
+/* Botón Eliminar: Rosa / Coral Pastel */
 .event button.delete-btn {
-  background: red;
-  color: #000;
+  background: #e2b3ab;
+  color: #3c3a3a; /* Texto rojo oscuro accesible */
   border: none;
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 11px;
+  flex: 1; /* Distribuye el ancho por igual */
+  transition: background 0.2s;
+}
+
+.event button.delete-btn:hover {
+  background: #fca5a5; /* Sube un tono el color al pasar el mouse */
 }
