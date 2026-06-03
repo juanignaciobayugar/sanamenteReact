@@ -1,9 +1,11 @@
+/* --- CONFIGURACIÓN GENERAL --- */
 body {
   font-family: Poppins, sans-serif;
   background: #f4f7ff;
   padding: 20px;
 }
 
+/* Contenedor principal del calendario */
 .calendar-container {
   max-width: 600px;
   margin: 0 auto;
@@ -13,42 +15,56 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* Título del Mes y Año */
 #monthYear {
   text-align: center;
   font-size: 26px;
   margin-bottom: 10px;
+  color: #4D8991; /* Color unificado del Login */
+  text-transform: capitalize;
 }
 
+/* Cabecera con los botones de navegación */
 .calendar-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
 
+/* Botones de Mes Anterior / Siguiente */
 .calendar-header button {
-  background: #4c6ef5;
+  background: #4D8991; /* Color unificado del Login */
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
+  transition: background 0.2s ease;
 }
 
+.calendar-header button:hover {
+  background: #3a686e; /* Tono más oscuro para el efecto hover */
+}
+
+/* Grilla del calendario (7 columnas para los días) */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
 }
 
+/* Nombres de los días (Lun, Mar, Mié...) */
 .day-name {
   text-align: center;
   font-weight: bold;
   padding: 8px 0;
+  color: #4D8991; /* Color unificado del Login */
 }
 
+/* Celdas individuales de los días */
 .day {
-  background: #e8ecff;
+  background: #eef5f6; /* Fondo sutil pastel derivado del color principal */
   padding: 18px 10px;
   border-radius: 12px;
   min-height: 90px;
@@ -58,19 +74,19 @@ body {
 }
 
 .day:hover {
-  background: #d7ddff;
+  background: #dceced; /* Hover suave para la celda */
 }
 
+/* Celda correspondiente al día de hoy */
 .day.today {
-  background: #b9c6ff;
-  border: 2px solid #4c6ef5;
+  background: #cce2e5; 
+  border: 2px solid #4D8991; /* Borde destacado con el color del Login */
 }
 
-/* --- SECCIÓN MODIFICADA CON PALETA PASTEL --- */
-
+/* --- SECCIÓN DE TARJETAS DE EVENTOS --- */
 .event {
-  background: #cbd5e1; /* Gris azulado pastel suave para el fondo del evento */
-  color: #334155;     /* Texto oscuro para que tenga buena lectura */
+  background: #4D8991; /* Fondo de la actividad con el color del Login */
+  color: white;        /* Texto en blanco para contraste óptimo */
   padding: 8px;
   border-radius: 8px;
   margin-top: 6px;
@@ -78,47 +94,48 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Alineación para que los botones no se peguen */
+/* Contenedor de acciones de la tarjeta */
 .event-buttons {
   display: flex;
   gap: 6px; 
   margin-top: 2px;
 }
 
-/* Botón Editar: Verde Menta Pastel */
+/* Botón Editar (Blanco traslúcido para no saturar con otros colores) */
 .event button.edit-btn {
-  background:#FFEBA5; 
-  color: #3c3a3a; /* Texto verde oscuro accesible */
-  border: none;
+  background: rgba(255, 255, 255, 0.25); 
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 11px;
-  flex: 1; /* Distribuye el ancho por igual */
+  flex: 1; 
   transition: background 0.2s;
 }
 
 .event button.edit-btn:hover {
-  background: #f8fa9e; /* Sube un tono el color al pasar el mouse */
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* Botón Eliminar: Rosa / Coral Pastel */
+/* Botón Eliminar (Rojo sutil de alerta clásico) */
 .event button.delete-btn {
-  background: #e2b3ab;
-  color: #3c3a3a; /* Texto rojo oscuro accesible */
+  background: #d9534f;
+  color: white;
   border: none;
   padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 11px;
-  flex: 1; /* Distribuye el ancho por igual */
+  flex: 1; 
   transition: background 0.2s;
 }
 
 .event button.delete-btn:hover {
-  background: #fca5a5; /* Sube un tono el color al pasar el mouse */
+  background: #c9302c;
 }

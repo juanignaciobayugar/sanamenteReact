@@ -1,11 +1,11 @@
-/* Contenedor principal y estructura */
+/* --- Contenedor principal  y estructura--- */
 .section-box {
   max-width: 950px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Fondo del header */
+/* Fondo del header de la subpágina */
 .subpage-header {
   background: #D2D9F9;
   padding: 15px 20px;
@@ -26,7 +26,7 @@
   text-decoration: underline;
 }
 
-/* Grid 2 columnas en escritorio */
+/* Grid de 2 columnas en escritorios */
 .sobre-cards {
   display: grid;
   width: 100%;
@@ -35,85 +35,88 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* 🔹 En móvil → 1 columna */
+/* Responsivo: En pantallas móviles pasa a 1 sola columna */
 @media(max-width: 700px) {
   .sobre-cards {
     grid-template-columns: 1fr;
   }
 }
 
-/* Estilo de las Tarjetas */
+/* --- Estilo de las tarjetas --- */
 .cardSobreNosotros {
   background: #fff;
   padding: 22px;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Base suave */
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra base muy sutil */
+  border: 2px solid transparent;            /* Borde inicial invisible para evitar saltos al hacer hover */
+  transition: all 0.3s ease;                /* Animación suave para todos los componentes */
 }
 
-/* Selectores de texto corregidos */
+/* Títulos internos de las tarjetas */
 .cardSobreNosotros h3 {
   font-size: 1.35rem;
-  color: #4b3f72;
+  color: #4D8991; /* Color unificado */
   margin-bottom: 10px;
   font-weight: 600;
 }
 
+/* Textos descriptivos */
 .cardSobreNosotros p {
   font-size: 1rem;
   line-height: 1.45;
   color: #555;
 }
 
-/* Hover mejorado */
+/*Efecto hover: elevación y cambio de borde unificado */
 .cardSobreNosotros:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: #4b3f72;
+  transform: translateY(-10px) scale(1.02); /* Sube la tarjeta y la agranda un 2% */
+  border-color: #4D8991;                    /* 🎨 Cambiado: El borde se pinta con el color del Login */
+  
+  /* Sombra de elevación profunda combinada con un resplandor translúcido de tu color */
   box-shadow:
-    0 10px 25px rgba(0,0,0,0.15),
-    0 0 12px rgba(130, 115, 230, 0.2);
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 0 12px rgba(77, 137, 145, 0.25);     /* rgba basado en #4D8991 */
 }
 
-/* Estilo puro para los Iconos Vectoriales */
+/* --- Estilo de los íconos vectoriales --- */
 .card-icon {
-  font-size: 2.5rem; /* Tamaño idéntico al de la imagen de referencia */
+  font-size: 2.5rem; 
   margin-bottom: 14px;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-/* Efecto de agrandado al pasar el mouse por la tarjeta */
+/* Efecto de agrandado en el ícono cuando se pasa el mouse por la tarjeta */
 .cardSobreNosotros:hover .card-icon {
   transform: scale(1.1);
 }
 
-/* Colores puros en Tonos Pastel */
+/* --- Paleta de los colores pastel para los íconos --- */
 .txt-celeste-pastel {
-  color: #90caf9; /* Celeste pastel puro */
+  color: #90caf9; 
 }
 
 .txt-rosa-pastel {
-  color: #f28482; /* Rosa/Rojo pastel puro */
+  color: #f28482; 
 }
 
 .txt-verde-pastel {
-  color: #81c784; /* Verde salud pastel puro */
+  color: #81c784; 
 }
 
 .txt-amarillo-pastel {
-  color: #fbd561; /* Amarillo/Crema pastel puro */
+  color: #fbd561; 
 }
 
 .txt-violeta-pastel {
-  color: #b39ddb; /* Violeta/Lila pastel puro */
+  color: #b39ddb; 
 }
 
 .txt-naranja-pastel {
-  color: #f4a261; /* Naranja/Destello pastel puro */
+  color: #f4a261; 
 }
 
-/* Auxiliares obligatorios */
+/* Auxiliares obligatorios de estructura */
 .subpage-header .back-btn,
 .subpage-header a.back-btn {
   display: none !important;
