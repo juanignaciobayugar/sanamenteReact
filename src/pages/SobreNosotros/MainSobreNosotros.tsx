@@ -1,13 +1,15 @@
-import CardSobreNosotros from "./CardSobreNosotros"; // Importación limpia con la "o"
+import CardSobreNosotros from "./CardSobreNosotros";
 import "./SobreNosotros.css";
 
 function MainSobreNosotros() {
   return (
     <main className="contenido">
+      {/* Caja contenedora para centrar la sección */}
       <div className="section-box">
+        {/* Grilla que distribuye las tarjetas en 1 o 2 columnas según la pantalla */}
         <section className="sobre-cards">
           
-          {/* 👥 Tarjeta 1 - ¿Quiénes somos? (Azul/Celeste Pastel) */}
+          {/* 👥 Tarjeta 1 - ¿Quiénes somos? (Ícono Celeste Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-users" 
             title="¿Quiénes somos?" 
@@ -15,7 +17,7 @@ function MainSobreNosotros() {
             clasePastel="txt-celeste-pastel"
           />
 
-          {/* ❤️ Tarjeta 2 - Salud y bienestar (Rosa/Rojo Pastel) */}
+          {/* ❤️ Tarjeta 2 - Salud y bienestar (Ícono Rosa/Rojo Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-heart" 
             title="Salud y Bienestar" 
@@ -23,7 +25,7 @@ function MainSobreNosotros() {
             clasePastel="txt-rosa-pastel"
           />
 
-          {/* 📈 Tarjeta 3 - Evolución personal (Verde Pastel) */}
+          {/* 📈 Tarjeta 3 - Evolución personal (Ícono Verde Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-chart-line" 
             title="Evolución Personal" 
@@ -31,7 +33,7 @@ function MainSobreNosotros() {
             clasePastel="txt-verde-pastel"
           />
 
-          {/* 📚 Tarjeta 4 - Información (Amarillo Pastel) */}
+          {/* 📚 Tarjeta 4 - Información (Ícono Amarillo Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-book" 
             title="Información" 
@@ -39,7 +41,7 @@ function MainSobreNosotros() {
             clasePastel="txt-amarillo-pastel"
           />
 
-          {/* 🤝 Tarjeta 5 - Acompañamiento (Violeta/Lila Pastel) */}
+          {/* 🤝 Tarjeta 5 - Acompañamiento (Ícono Violeta/Lila Pastel) */}
           <CardSobreNosotros 
             icon="fas fa-hands-helping" 
             title="Acompañamiento" 
@@ -47,13 +49,13 @@ function MainSobreNosotros() {
             clasePastel="txt-violeta-pastel"
           />
 
-         {/* ✨ Tarjeta - Nuestra Misión (Naranja/Glow Pastel) */}
-<CardSobreNosotros 
-  icon="fas fa-star" // Cambiado a estrella clásica para asegurar compatibilidad total
-  title="Nuestra Misión" 
-  description="Brindar soluciones digitales accesibles, humanas y personalizadas para gestionar tu salud con apoyo, seguridad y confianza." 
-  clasePastel="txt-naranja-pastel"
-/>
+          {/* ✨ Tarjeta 6 - Nuestra Misión (Ícono Naranja Pastel) */}
+          <CardSobreNosotros 
+            icon="fas fa-star" 
+            title="Nuestra Misión" 
+            description="Brindar soluciones digitales accesibles, humanas y personalizadas para gestionar tu salud con apoyo, seguridad y confianza." 
+            clasePastel="txt-naranja-pastel"
+          />
 
         </section>
       </div>
