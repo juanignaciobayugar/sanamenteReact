@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GENERAL --- */
+/* --- Configuración general --- */
 body {
   font-family: Poppins, sans-serif;
   background: #f4f7ff;
@@ -20,7 +20,7 @@ body {
   text-align: center;
   font-size: 26px;
   margin-bottom: 10px;
-  color: #4D8991; /* Color unificado del Login */
+  color: #4D8991; /* Color unificado */
   text-transform: capitalize;
 }
 
@@ -33,7 +33,7 @@ body {
 
 /* Botones de Mes Anterior / Siguiente */
 .calendar-header button {
-  background: #4D8991; /* Color unificado del Login */
+  background: #4D8991; /* Color unificado*/
   color: white;
   border: none;
   padding: 8px 16px;
@@ -54,12 +54,12 @@ body {
   gap: 8px;
 }
 
-/* Nombres de los días (Lun, Mar, Mié...) */
+/* Nombres de los días (Lun, Mar, Miércoles, etc.) */
 .day-name {
   text-align: center;
   font-weight: bold;
   padding: 8px 0;
-  color: #4D8991; /* Color unificado del Login */
+  color: #4D8991; /* Color unificado */
 }
 
 /* Celdas individuales de los días */
@@ -80,13 +80,13 @@ body {
 /* Celda correspondiente al día de hoy */
 .day.today {
   background: #cce2e5; 
-  border: 2px solid #4D8991; /* Borde destacado con el color del Login */
+  border: 2px solid #4D8991; /* Borde destacado */
 }
 
-/* --- SECCIÓN DE TARJETAS DE EVENTOS --- */
+/* --- Sección de tarjetas de eventos (Fondo oscurecido para mejor lectura) --- */
 .event {
-  background: #4D8991; /* Fondo de la actividad con el color del Login */
-  color: white;        /* Texto en blanco para contraste óptimo */
+  background: #94a3b8; /* Cambiado: Gris azulado un poco más oscuro y nítido */
+  color: #1e293b;      /* Cambiado: Texto más oscuro para un contraste óptimo */
   padding: 8px;
   border-radius: 8px;
   margin-top: 6px;
@@ -94,7 +94,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor de acciones de la tarjeta */
@@ -104,11 +104,11 @@ body {
   margin-top: 2px;
 }
 
-/* Botón Editar (Blanco traslúcido para no saturar con otros colores) */
+/* Botón Editar: Verde Menta / Amarillo Pastel original */
 .event button.edit-btn {
-  background: rgba(255, 255, 255, 0.25); 
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #FFEBA5; 
+  color: #3c3a3a; 
+  border: none;
   padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
@@ -119,13 +119,13 @@ body {
 }
 
 .event button.edit-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: #f8fa9e; 
 }
 
-/* Botón Eliminar (Rojo sutil de alerta clásico) */
+/* Botón Eliminar: Rosa / Coral Pastel original */
 .event button.delete-btn {
-  background: #d9534f;
-  color: white;
+  background: #e2b3ab;
+  color: #3c3a3a; 
   border: none;
   padding: 4px 8px;
   border-radius: 6px;
@@ -137,5 +137,5 @@ body {
 }
 
 .event button.delete-btn:hover {
-  background: #c9302c;
+  background: #fca5a5; 
 }
