@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+// CORRECCIÓN: Importación de SweetAlert2 para el manejo estético de las alertas corporativas
+import Swal from "sweetalert2";
 
 interface CardLoginProps {
  onLogin?: (token: string) => void;
@@ -26,7 +28,6 @@ function CardLogin(props: CardLoginProps) {
       let edadCalculada = hoy.getFullYear() - fechaNac.getFullYear();
       const mes = hoy.getMonth() - fechaNac.getMonth();
 
-      // Ajuste si el cumple aún no pasó en el año actual
       if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
         edadCalculada--;
       }
@@ -34,8 +35,6 @@ function CardLogin(props: CardLoginProps) {
       const edadFinal = edadCalculada >= 0 ? edadCalculada : 0;
       setEdad(edadFinal);
 
-      // Lógica de control: Si el usuario cambia la fecha y ahora es mayor, 
-      // limpiamos el error de forma automática para mejorar la experiencia.
       if (edadFinal >= 18) {
         setError("");
       }
@@ -54,54 +53,52 @@ function CardLogin(props: CardLoginProps) {
     setError("");
   };
 
-  const manejarAccion = async () => { // Agregamos 'async' para poder usar 'await'
+  const manejarAccion = async () => { 
     setError("");
     console.log("Modo actual:", fechaNacimiento, edad);
     if (modo === "login") {
-      // 1. Validación estándar de Login
       if (!email || !password) {
         setError("❌ Por favor, ingresa tu correo y contraseña");
         return;
       }
 
-      // Filtro de edad: Bloqueo estricto si es menor de 18 años
       if (typeof edad === "number" && edad < 18) {
         setError("❌ Lo sentimos, tenés que ser mayor de 18 años para registrarte en la plataforma.");
-        return; // Frena la ejecución, no permite avanzar al estado de éxito ni enviar a la API
+        return; 
       }
 
-      // 2. AQUÍ SE HACE EL FETCH PARA EL LOGIN
       try {
         const respuesta = await fetch("http://localhost:3000/auth/login", {
-          method: "POST", // Se usa POST para enviar credenciales de forma segura
+          method: "POST", 
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }), // Enviamos los datos
+          body: JSON.stringify({ email, password }), 
         });
 
         const datos = await respuesta.json();
 
         if (!respuesta.ok) {
-          // Si el servidor responde con un error (ej: 401 contrasña incorrecta)
           throw new Error(datos.mensaje || "Error al iniciar sesión");
         }
 
-
-
-        // Si todo sale bien:
         console.log("Login exitoso, token recibido:", datos.access_token);
 
         if (datos.access_token) {
           localStorage.setItem("token_jwt", datos.access_token);
         }
 
-        // 2. Metemos el alert acá afuera para que aparezca SIEMPRE
-        alert("¡Sesión iniciada con éxito! (Token guardado)");
+        // CORRECCIÓN: SweetAlert2 configurado con el color unificado #4D8991
+        await Swal.fire({
+          title: "¡Sesión iniciada!",
+          text: "Ingresaste con éxito a Sanamente.",
+          icon: "success",
+          confirmButtonColor: "#4D8991",
+          iconColor: "#4D8991"
+        });
 
-        // 3. Después ejecutamos la prop que venía de arriba por si el resto de la app la necesita
         if (props.onLogin) {
-          props.onLogin(datos.access_token); // Le pasamos el token en vez de la contraseña
+          props.onLogin(datos.access_token); 
         }
 
       } catch (err: any) {
@@ -109,16 +106,14 @@ function CardLogin(props: CardLoginProps) {
       }
 
     } else if (modo === "registro") {
-      // 1. Validación de Registro
       if (!email || !password || !name || !fechaNacimiento) {
         setError("❌ Por favor completa todos los campos para registrarte");
         return;
       }
 
-      // 2. AQUÍ SE HACE EL FETCH PARA EL REGISTRO
       try {
         const respuesta = await fetch("http://localhost:3000/users", {
-          method: "POST", // POST para crear un nuevo recurso (usuario)
+          method: "POST", 
           headers: {
             "Content-Type": "application/json",
           },
@@ -136,8 +131,17 @@ function CardLogin(props: CardLoginProps) {
           throw new Error(datos.mensaje || "Error al registrar el usuario");
         }
 
-        // Si el registro fue exitoso:
         console.log("Registrado con éxito en el servidor:", datos);
+
+        // CORRECCIÓN: Ventana de SweetAlert2 con el color #4D8991
+        await Swal.fire({
+          title: "¡Registro Exitoso!",
+          text: "Tu cuenta de paciente ha sido creada con éxito.",
+          icon: "success",
+          confirmButtonColor: "#4D8991",
+          iconColor: "#4D8991"
+        });
+
         limpiarFormulario();
         setModo("exito");
 
@@ -147,22 +151,30 @@ function CardLogin(props: CardLoginProps) {
     }
   };
 
-
-  // Vista de éxito
+  // ==========================================================================
+  // VISTA DE ÉXITO (TRAS REGISTRARSE)
+  // ==========================================================================
   if (modo === "exito") {
     return (
+      /* CORRECCIÓN: Sin estilos fijos para que reaccione al hover del archivo CSS */
       <div className="form-container">
         <h2>¡Gracias por registrarte!</h2>
-        <p className="mensaje-exito" style={{ display: "block", color: "green" }}>
+        <p className="mensaje-exito" style={{ display: "block", color: "#4D8991", fontWeight: "bold" }}>
           Tu cuenta ha sido creada con éxito.
         </p>
-        <button onClick={() => setModo("login")}>Volver al Login</button>
+        <button onClick={() => setModo("login")}>
+          Volver al Login
+        </button>
       </div>
     );
   }
 
+  // ==========================================================================
+  // VISTA PRINCIPAL (LOGIN / REGISTRO)
+  // ==========================================================================
   return (
     <section id="login">
+      {/* CORRECCIÓN: Dejamos el contenedor limpio de inline-styles para que funcione el efecto dinámico del CSS */}
       <div className="form-container">
         <h2>{modo === "login" ? "Iniciar sesión" : "Crear cuenta"}</h2>
 
@@ -180,7 +192,6 @@ function CardLogin(props: CardLoginProps) {
               <label>Fecha de Nacimiento:</label>
               <input
                 type="date"
-                // Mantiene el bloqueo nativo del calendario para no elegir fechas futuras
                 max={new Date().toISOString().split("T")[0]}
                 value={fechaNacimiento}
                 onChange={(e) => setFechaNacimiento(e.target.value)}
@@ -223,7 +234,6 @@ function CardLogin(props: CardLoginProps) {
           {modo === "login" ? "¿No tienes cuenta? " : "¿Ya tienes cuenta? "}
           <span
             className="link-simulado"
-            style={{ color: "#4CAF50", cursor: "pointer", textDecoration: "underline" }}
             onClick={() => {
               limpiarFormulario();
               setModo(modo === "login" ? "registro" : "login");
