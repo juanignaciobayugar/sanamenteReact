@@ -1,12 +1,12 @@
-/*  Contenedor general de la página*/
+/* Contenedor general de la página */
+
 .pagina-contacto {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: 'Rubik', sans-serif; /* Tipografía unificada */
+    font-family: 'Rubik', sans-serif;
 }
 
-/* Encabezado - Modificado: Centrado absoluto del título */
 .contacto-header {
     display: flex;
     justify-content: center;
@@ -18,12 +18,13 @@
 .contacto-header h2 {
     font-family: 'Rubik', sans-serif;
     font-size: 2rem;
-    color: #3f51b5 !important;
+    color: #B39DDB !important; /* Modificación de color: Malva Lavanda */
     margin: 0;
     text-align: center;
 }
 
-/* Contenedores Principales y Estructura */
+/*Cntendedores principales y estructura */
+
 .contact-container {
     display: flex;
     flex-direction: row;
@@ -33,34 +34,34 @@
     margin-top: 20px;
 }
 
-/* Estilo base para las tarjetas */
-.card, .form-container, .redes-container {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    padding: 25px;
-    border: 2px solid #f0f0f0;
-    transition: all 0.3s ease;
+.card, 
+.form-container, 
+.redes-container,
+.contact-container > div {
+    background-color: #fff !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    padding: 25px !important;
+    border: 2px solid #EDE7F6 !important; /* Fondo lavanda ultra suave para el contorno */
+    transition: all 0.3s ease !important;
 }
 
-/* Títulos con el color principal #3f51b5 */
 .form-container h3, 
 .redes-container h3, 
-.seccion-detalle-contacto h3 {
+.seccion-detalle-contacto h3,
+.contact-container > div h3 {
     font-family: 'Rubik', sans-serif;
     margin-top: 0;
     margin-bottom: 20px;
-    color: #3f51b5; 
+    color: #B39DDB !important; /* Modificación de color: Malva Lavanda */
     font-weight: 600;
     font-size: 1.5rem;
 }
 
-/* Columna Izquierda: Formulario */
 .form-container {
     flex: 2; 
 }
 
-/* Columna Derecha: Redes e Info */
 .redes-container {
     flex: 1; 
     display: flex;
@@ -68,15 +69,16 @@
     gap: 20px;
 }
 
-/* Hover para las tarjetas */
 .form-container:hover, 
-.redes-container:hover {
-    transform: translateY(-5px);
-    border-color: #3f51b5;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.redes-container:hover,
+.contact-container > div:hover {
+    transform: translateY(-5px) !important;
+    border-color: #D1C4E9 !important; /* Sube un toque el tono lavanda en hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
-/*Estilos del Formulario */
+/*Estilos del formulario y entradas */
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -86,7 +88,7 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
     margin-bottom: 8px;
-    color: #444;
+    color: #616161; 
 }
 
 .contact-form input, 
@@ -98,6 +100,14 @@
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fafafa;
+    color: #616161; 
+    transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #D1C4E9; 
 }
 
 .contact-form textarea {
@@ -105,21 +115,20 @@
     resize: none;
 }
 
-/* Botón de envío (Mismo color que los títulos) */
+/* Base del botón */
 .btn-enviar {
     font-family: 'Rubik', sans-serif;
-    background-color: #3f51b5 !important; 
-    color: white;
     padding: 15px;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-weight: 500;
+    font-weight: bold;
 }
 
-/*Listas de Información y Redes Sociales */
+/*Lista de información y redes sociales */
+
 .redes-lista, .info-lista {
     list-style: none;
     padding: 0;
@@ -132,12 +141,12 @@
     gap: 12px;
     margin-bottom: 15px;
     font-size: 1.1rem;
-    color: #4a4a4a;
+    color: #616161; 
 }
 
 .redes-lista li a {
     text-decoration: none;
-    color: #4a4a4a;
+    color: #616161; 
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
@@ -145,10 +154,9 @@
 }
 
 .redes-lista li a:hover {
-    color: #3f51b5;
+    color: #B39DDB; 
 }
 
-/* Estilos base para todos los Iconos */
 .redes-lista i, .info-lista i {
     font-size: 1.3rem;
     width: 25px; 
@@ -157,53 +165,23 @@
     transition: transform 0.2s ease;
 }
 
-/* Animación sutil al pasar por encima de las redes */
 .redes-lista li:hover i {
     transform: scale(1.1);
 }
 
-/* Nuevo: Colores de marcas en Tonos Pastel (Estética de Salud)*/
-
 /* Redes Sociales */
-.redes-lista i.icon-facebook {
-    color: #7fa4e6; /* Azul Facebook suave */
-}
-
-.redes-lista i.icon-instagram {
-    color: #e5989b; /* Rosa Instagram suave */
-}
-
-.redes-lista i.icon-tiktok {
-    color: #81ced6; /* Turquesa/Cian TikTok suave */
-}
-
-.redes-lista i.icon-youtube {
-    color: #f28482; /* Rojo YouTube suave */
-}
+.redes-lista i.icon-facebook { color: #7fa4e6; }
+.redes-lista i.icon-instagram { color: #e5989b; }
+.redes-lista i.icon-tiktok { color: #81ced6; }
+.redes-lista i.icon-youtube { color: #f28482; }
 
 /* Tarjeta de Información General */
-.info-lista i.icon-email {
-    color: #b39ddb; /* Violeta relajante */
-}
+.info-lista i.icon-email { color: #b39ddb; }
+.info-lista i.icon-whatsapp { color: #81c784; }
+.info-lista i.icon-ubicacion { color: #B39DDB; } /* Cambiado a lavanda */
+.info-lista i.icon-reloj { color: #a0aab2; }
 
-.info-lista i.icon-whatsapp {
-    color: #81c784; /* Verde clínico/WhatsApp */
-}
-
-.info-lista i.icon-ubicacion {
-    color: #90caf9; /* Azul celeste médico */
-}
-
-.info-lista i.icon-reloj {
-    color: #a0aab2; /* Gris azulado suave */
-}
-
-/*Responsive / Adaptabilidad Mobile */
 @media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-    }
-    .form-container, .redes-container {
-        width: 100%;
-    }
+    .contact-container { flex-direction: column; }
+    .form-container, .redes-container { width: 100%; }
 }
