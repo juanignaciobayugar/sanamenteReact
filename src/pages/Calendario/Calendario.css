@@ -1,23 +1,34 @@
+/* ==========================================================================
+   ESTILOS GENERALES DEL CONTENEDOR
+   ========================================================================== */
+
 body {
   font-family: Poppins, sans-serif;
   background: #f4f7ff;
   padding: 20px;
 }
 
+/* Contenedor principal que encierra todo el almanaque */
 .calendar-container {
   max-width: 600px;
   margin: 0 auto;
   background: white;
   padding: 20px;
   border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Título superior (Mes y Año) */
 #monthYear {
   text-align: center;
   font-size: 26px;
   margin-bottom: 10px;
+  color: #4A4A4A; /* Gris oscuro suave en lugar de negro puro */
 }
+
+/* ==========================================================================
+   CABECERA Y NAVEGACIÓN (BOTONES UNIFICADOS A CELESTE PASTEL)
+   ========================================================================== */
 
 .calendar-header {
   display: flex;
@@ -25,75 +36,127 @@ body {
   margin-bottom: 15px;
 }
 
+/* Flechas de navegación (◀ y ▶) - CORREGIDO: Mismo celeste y gris que el evento */
 .calendar-header button {
-  background: #4c6ef5;
-  color: white;
+  background: #E1F5FE; /* UNIFICADO: Mismo celeste pastel que el cuadro del evento */
+  color: #616161; /* UNIFICADO: Mismo color grisáceo de texto */
   border: none;
   padding: 8px 16px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s ease; /* Transición suave al pasar el mouse */
 }
 
+/* Efecto hover para las flechas de navegación */
+.calendar-header button:hover {
+  background: #B3E5FC; /* Un celeste sutilmente más marcado al pasar el mouse */
+}
+
+/* ==========================================================================
+   GRILLA DEL CALENDARIO Y CELDAS DE LOS DÍAS
+   ========================================================================== */
+
+/* Distribución de los 7 días de la semana */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
 }
 
+/* Etiquetas de los días (Dom, Lun, Mar, etc.) - Gris de referencia */
 .day-name {
   text-align: center;
   font-weight: bold;
   padding: 8px 0;
+  color: #616161; /* Este es el gris base unificado */
 }
 
+/* Celda individual de cada día */
 .day {
-  background: #e8ecff;
+  background: #f0f2f5; /* Gris claro neutro de fondo */
   padding: 18px 10px;
   border-radius: 12px;
   min-height: 90px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.2s ease;
   position: relative;
 }
 
+/* Efecto hover sobre la celda del día */
 .day:hover {
-  background: #d7ddff;
+  background: #e2e5e9;
 }
 
+/* Celda destacada que representa al día de HOY */
 .day.today {
-  background: #b9c6ff;
-  border: 2px solid #4c6ef5;
+  background: #E8EAF6; /* Fondo lavanda muy sutil */
+  border: 2px solid #C5CAE9; /* Borde lavanda definido pero pastel */
 }
 
+/* ==========================================================================
+   TARJETAS DE EVENTOS INTERNAS (CELESTE PASTEL - SIN BORDES RAROS)
+   ========================================================================== */
+
+/* Bloque contenedor del evento guardado dentro de un día */
 .event {
-  background: #4c6ef5;
-  color: white;
-  padding: 6px;
-  border-radius: 8px;
+  background: #E1F5FE; /* Fondo celeste pastel ultra suave */
+  color: #616161; /* Mismo color grisáceo que los días de la semana (evento y horario) */
+  padding: 8px;
+  border-radius: 8px; /* Bordes redondeados homogéneos en todas las esquinas */
   margin-top: 6px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
+  gap: 6px;
+}
+
+/* Contenedor interno para alinear los botones del evento */
+.event-buttons {
+  display: flex;
   gap: 4px;
+  margin-top: 4px;
 }
 
+/* ==========================================================================
+   BOTONES DE ACCIÓN DENTRO DEL EVENTO (VERDE MENTA Y ROSA PASTEL)
+   ========================================================================== */
+
+/* Botón de "Editar" en Verde Menta Pastel */
 .event button.edit-btn {
-  background: #07bf41; 
-  color: #000;
+  background: #C8E6C9; /* Verde menta suave */
+  color: #616161; /* Lo que dice Editar ahora es grisáceo */
   border: none;
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 11px;
+  flex: 1; /* Hace que ocupe la mitad del espacio disponible */
+  transition: background 0.2s ease;
 }
 
+/* Efecto hover para el botón de editar */
+.event button.edit-btn:hover {
+  background: #A5D6A7;
+}
+
+/* Botón de "Eliminar" en Rosa / Coral Pastel */
 .event button.delete-btn {
-  background: red;
-  color: #000;
+  background: #FFCDD2; /* Rosa pastel/sandía muy sutil */
+  color: #616161; /* Lo que dice Eliminar ahora es grisáceo */
   border: none;
-  padding: 3px 6px;
+  padding: 4px 8px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 11px;
+  flex: 1; /* Hace que ocupe la otra mitad del espacio */
+  transition: background 0.2s ease;
+}
+
+/* Efecto hover para el botón de eliminar */
+.event button.delete-btn:hover {
+  background: #EF9A9A;
 }

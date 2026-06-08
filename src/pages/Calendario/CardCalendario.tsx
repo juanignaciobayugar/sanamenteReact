@@ -11,7 +11,9 @@ interface CardCalendarioProps {
 
 const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEvents }: CardCalendarioProps) => {
   
-  // Función para AGREGAR
+  // ==========================================================================
+  // FUNCIÓN PARA AGREGAR UN EVENTO
+  // ==========================================================================
   const addEvent = async () => {
     const { value: text } = await Swal.fire({
       title: "Nueva actividad",
@@ -30,16 +32,18 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
 
     if (!hour) return;
 
-    // Importante: Creo una copia nueva del estado para que React sepa que cambió
+    // Creo una copia nueva del estado para que React detecte el cambio de objeto
     const newEvents = { ...eventsState };
     if (!newEvents[dateKey]) newEvents[dateKey] = [];
     newEvents[dateKey].push({ text, hour });
     
-    setEvents(newEvents); // Esto dispara el re-render y hace aparecer los botones
+    setEvents(newEvents); // Dispara el re-render para mostrar el nuevo evento
     Swal.fire("Guardado", "Evento creado", "success");
   };
 
-  // Función para Editar
+  // ==========================================================================
+  // FUNCIÓN PARA EDITA UN EVENTO EXISTENTE
+  // ==========================================================================
   const editEvent = async (index: number) => {
     const currentEvt = dayEvents[index];
 
@@ -67,7 +71,9 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
     Swal.fire("Actualizado", "Evento editado con éxito", "success");
   };
 
-  // Función para Eliminar
+  // ==========================================================================
+  // FUNCIÓN PARA ELIMINAR UN EVENTO (Con cartel de confirmación y éxito)
+  // ==========================================================================
   const deleteEvent = (index: number) => {
     Swal.fire({
       title: "¿Seguro quieres eliminarlo?",
@@ -78,12 +84,21 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
       if (res.isConfirmed) {
         const newEvents = { ...eventsState };
         newEvents[dateKey].splice(index, 1);
+        
+        // Si no quedan más eventos en ese día, borro la clave para limpiar el objeto
         if (newEvents[dateKey].length === 0) delete newEvents[dateKey];
+        
         setEvents(newEvents);
+        
+        // Alerta de éxito agregada para mejorar la experiencia de usuario (UX)
+        Swal.fire("Eliminado", "Evento eliminado con éxito", "success");
       }
     });
   };
 
+  // ==========================================================================
+  // RENDERIZADO DEL COMPONENTE
+  // ==========================================================================
   return (
     <div className={`day ${isToday ? "today" : ""}`} onClick={addEvent}>
       <strong>{day}</strong>

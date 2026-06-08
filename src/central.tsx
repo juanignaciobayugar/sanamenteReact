@@ -4,9 +4,9 @@ import img3 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 1.png";
 import img4 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 4.png";
 import img5 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 5.png";
 import img6 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 6.png";
+import { RutaProtegida } from "./components/RutaProtegida.tsx"; // El guardia que creamos recién
 
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -107,15 +107,15 @@ function Central() {
   ];
 
 
-  
+
   const estadoButtons = [
-    { value: "bien", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
-    { value: "regular", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
-    { value: "mal", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
-    { value: "estupendo", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
-    
+    { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
+    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
+    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
+    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
+
   ];
-  
+
   const estadosdataE = [
     {
       image: img4,
@@ -135,19 +135,19 @@ function Central() {
 
   const energiaButtons = [
     { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/1.png" },
-      { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2.png" },
-      { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/3.png" },
-      { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/4.png" },
-      { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/5.png" },
-      { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/6.png" },
-      { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/7.png" },
-      { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/8.png" },
-      { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/9.png" },
-      { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/10.png" },
-      { value: "11", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/11.png" },
-      { value: "12", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/12.png" },
+    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2.png" },
+    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/3.png" },
+    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/4.png" },
+    { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/5.png" },
+    { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/6.png" },
+    { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/7.png" },
+    { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/8.png" },
+    { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/9.png" },
+    { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/10.png" },
+    { value: "11", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/11.png" },
+    { value: "12", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/12.png" },
   ];
-  
+
   const estadosdataD = [
     {
       image: img1,
@@ -164,24 +164,25 @@ function Central() {
     },
   ];
 
-const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
-    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
-    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
-    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
-    { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
-    { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
-    { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
-    { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
-    { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
-    { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
-]
+  const dolorButtons = [{ value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
+  { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
+  { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
+  { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
+  { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
+  { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
+  { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
+  { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
+  { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
+  { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
+  ]
 
-
+  const [estaLogueado, setEstaLogueado] = useState<boolean>(!!localStorage.getItem("token_jwt"));
 
   return (
     <BrowserRouter>
       <div className="central">
         <Header
+          estaLogueado={estaLogueado} // 🔥 AGREGÁ ESTA LÍNEA ACÁ ARRIBA DE TODO DEL HEADER
           estado={estado}
           estadoImg={estadoImg}
           estadoIndex={estadoIndex}
@@ -221,93 +222,132 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
 
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/login" element={<MainLogin />} />
+
           <Route
-            path="/cuestionario"
+            path="/login"
             element={
-              <MainCuestionario
-                onEstadoSelect={(valor, imgSrc, index, variant) => {
-                  if (valor === "nolose") {
-                    // acá abrís el modal de Estado
-                    setShowModalEstado(true);
-                  } else {
-                    setEstado(valor);
-                    setEstadoImg(imgSrc);
-                    setEstadoIndex(index);
-                    if (variant) setEstadoVariant(variant);
-
-                    localStorage.setItem(
-                      "ultimoEstado",
-                      JSON.stringify({ tipo: "estado", valor, imgSrc, index, variant, timestamp: Date.now() })
-                    );
-                  }
+              <MainLogin
+                onLogin={() => {
+                  setEstaLogueado(true); // Solo cambia el estado para prender el Header
                 }}
-                onDolorSelect={(valor, imgSrc, index, variant) => {
-                  if (valor === "nolose") {
-                    // acá abrís el modal de Dolor
-                    setShowModalDolor(true);
-                  } else {
-                
-                  setDolor(valor);
-                  setDolorImg(imgSrc);
-                  setDolorIndex(index);
-                  if (variant) setDolorVariant(variant);
-
-                  localStorage.setItem(
-                    "ultimoDolor",
-                    JSON.stringify({ tipo: "dolor", valor, imgSrc, index, variant, timestamp: Date.now() })
-                  );
-                }
-                }}
-                onEnergiaSelect={(valor, imgSrc, index, variant) => {
-                  if (valor === "nolose") {
-                    // acá abrís el modal de Energía
-                    setShowModalEnergia(true);
-                  } else {
-                  setEnergia(valor);
-                  setEnergiaImg(imgSrc);
-                  setEnergiaIndex(index);
-                  if (variant) setEnergiaVariant(variant);
-
-                  localStorage.setItem(
-                    "ultimoEnergia",
-                    JSON.stringify({ tipo: "energia", valor, imgSrc, index, variant, timestamp: Date.now() })
-                  );}
-                }}
-
-
-
-
               />
             }
           />
-          <Route path="/estadisticas" element={<MainEstadistica />} />
-          <Route path="/contacto" element={<MainContacto />} />
-          <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
-          <Route path="Calendario" element={<MainCalendario />} />
+
+          <Route element={<RutaProtegida />}>
+            <Route
+              path="/cuestionario"
+              element={
+                <MainCuestionario
+                  onEstadoSelect={(valor, imgSrc, index, variant) => {
+                    if (valor === "nolose") {
+                      // acá abrís el modal de Estado
+                      setShowModalEstado(true);
+                    } else {
+                      setEstado(valor);
+                      setEstadoImg(imgSrc);
+                      setEstadoIndex(index);
+                      if (variant) setEstadoVariant(variant);
+
+                      localStorage.setItem(
+                        "ultimoEstado",
+                        JSON.stringify({ tipo: "estado", valor, imgSrc, index, variant, timestamp: Date.now() })
+                      );
+                    }
+                  }}
+                  onDolorSelect={(valor, imgSrc, index, variant) => {
+                    if (valor === "nolose") {
+                      // acá abrís el modal de Dolor
+                      setShowModalDolor(true);
+                    } else {
+
+                      setDolor(valor);
+                      setDolorImg(imgSrc);
+                      setDolorIndex(index);
+                      if (variant) setDolorVariant(variant);
+
+                      localStorage.setItem(
+                        "ultimoDolor",
+                        JSON.stringify({ tipo: "dolor", valor, imgSrc, index, variant, timestamp: Date.now() })
+                      );
+                    }
+                  }}
+                  onEnergiaSelect={(valor, imgSrc, index, variant) => {
+                    if (valor === "nolose") {
+                      // acá abrís el modal de Energía
+                      setShowModalEnergia(true);
+                    } else {
+                      setEnergia(valor);
+                      setEnergiaImg(imgSrc);
+                      setEnergiaIndex(index);
+                      if (variant) setEnergiaVariant(variant);
+
+                      localStorage.setItem(
+                        "ultimoEnergia",
+                        JSON.stringify({ tipo: "energia", valor, imgSrc, index, variant, timestamp: Date.now() })
+                      );
+                    }
+                  }}
+                />
+              }
+            />
+            <Route path="/estadisticas" element={<MainEstadistica />} />
+            <Route path="/contacto" element={<MainContacto />} />
+            <Route path="/sobre-nosotros" element={<MainSobreNosotros />} />
+            <Route path="Calendario" element={<MainCalendario />} />
+          </Route> //cierro ruta protegida, todo lo que esté adentro de esto, va a necesitar el token para ser accedido
           {/* Agrega aquí el resto de tus rutas */}
         </Routes>
         {/* Modales */}
         {showModalEstado && (
           <ModalEstado
-            buttons={estadoButtons} // Asegúrate de tener esta variable definida
-            estadosdata={estadosdata} // Pasamos los datos de estadosdata al modal
+            buttons={estadoButtons}
+            estadosdata={estadosdata}
             onSelect={(valor, imgSrc, index, variant) => {
-
-
+              // 1. INSTANTÁNEO: Actualizamos la pantalla y cerramos el modal YA
               setEstado(valor);
               setEstadoImg(imgSrc);
               setEstadoIndex(index);
               if (variant) setEstadoVariant(variant);
-              localStorage.setItem("ultimoEstado", JSON.stringify({ tipo: "estado", valor, imgSrc, index, variant, timestamp: Date.now() }));
-              setShowModalEstado(false);
+
+              localStorage.setItem(
+                "ultimoEstado",
+                JSON.stringify({ tipo: "estado", valor, imgSrc, index, variant, timestamp: Date.now() })
+              );
+
+              setShowModalEstado(false); // El modal se cierra al toque
+
+              // 2. EN SEGUNDO PLANO: Le avisamos al backend con tu endpoint real
+              // Validamos que el valor no sea "nolose" si es que en el modal también existe esa opción
+       
+              if (valor !== "nolose") {
+                const token = localStorage.getItem('token_jwt');
+                if (!token) return;
+
+                // Armamos el objeto EXACTAMENTE igual al JSON de Postman
+                const bodyPayload = {
+                  fecha: new Date().toISOString().split('T')[0], // "2026-05-24"
+
+                  estadoEmocional: Number(valor)                 // Tu puntaje (ej: 4)
+                };
+                fetch("http://localhost:3000/daily-records/save-click", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+                  body: JSON.stringify(bodyPayload)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    console.log("✅ Respuesta del servidor en el Front:", data);
+                  })
+                  .catch(err => console.error("❌ Error al guardar desde el Front:", err));
+              }
             }}
             onClose={() => setShowModalEstado(false)}
             variant="e"
           />
         )}
 
-          {showModalEnergia && (
+        {showModalEnergia && (
           <ModalEnergia
             buttons={energiaButtons} // Asegúrate de tener esta variable definida
             estadosdataE={estadosdataE} // Pasamos los datos de estadosdataE al modal
@@ -318,6 +358,30 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
               if (variant) setEnergiaVariant(variant);
               localStorage.setItem("ultimoEnergia", JSON.stringify({ tipo: "energia", valor, imgSrc, index, variant, timestamp: Date.now() }));
               setShowModalEnergia(false);
+
+              if (valor !== "nolose") {
+                const token = localStorage.getItem('token_jwt');
+                if (!token) return;
+
+
+
+                // Armamos el objeto EXACTAMENTE igual al JSON de Postman
+                const bodyPayload = {
+                  fecha: new Date().toISOString().split('T')[0], // "2026-05-24"
+                  // 1
+                  estadoEnergia: Number(valor)                 // Tu puntaje (ej: 4)
+                };
+                fetch("http://localhost:3000/daily-records/save-click", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+                  body: JSON.stringify(bodyPayload)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    console.log("✅ Respuesta del servidor en el Front:", data);
+                  })
+                  .catch(err => console.error("❌ Error al guardar desde el Front:", err));
+              }
             }}
             onClose={() => setShowModalEnergia(false)}
             variant="c"
@@ -335,6 +399,32 @@ const dolorButtons = [ { value: "1", imgSrc: "../src/assets/imagenes/cuestionari
               if (variant) setDolorVariant(variant);
               localStorage.setItem("ultimoDolor", JSON.stringify({ tipo: "dolor", valor, imgSrc, index, variant, timestamp: Date.now() }));
               setShowModalDolor(false);
+
+              if (valor !== "nolose") {
+                const token = localStorage.getItem('token_jwt');
+                if (!token) return;
+
+
+
+                // Armamos el objeto EXACTAMENTE igual al JSON de Postman
+                const bodyPayload = {
+                  fecha: new Date().toISOString().split('T')[0], // "2026-05-24"
+
+                  estadoDolor: Number(valor)                 // Tu puntaje (ej: 4)
+                };
+                fetch("http://localhost:3000/daily-records/save-click", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+                  body: JSON.stringify(bodyPayload)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    console.log("✅ Respuesta del servidor en el Front:", data);
+                  })
+                  .catch(err => console.error("❌ Error al guardar desde el Front:", err));
+              }
+
+
             }}
             onClose={() => setShowModalDolor(false)}
             variant="d"

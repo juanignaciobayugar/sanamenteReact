@@ -1,6 +1,6 @@
-/* ============================
-   Estilos generales
-=============================== */
+/* ==========================================================================
+   ESTILOS GENERALES Y LAYOUT
+   ========================================================================== */
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
@@ -51,17 +51,29 @@ main.contenido {
   align-items: center;
 }
 
-/* ============================
-   Formularios
-=============================== */
+/* ==========================================================================
+   ESTADOS DE LA TARJETA (NORMAL Y DINÁMICO)
+   ========================================================================== */
+
+/* Estado normal del contenedor */
 .form-container {
   background: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Transición suave para que la elevación y el color no cambien de golpe */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* CORRECCIÓN EXCLUSIVA: Efecto dinámico Hover reforzado con el turquesa del profesor (#4D8991) */
+body .form-container:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta */
+  border-color: #4D8991 !important; /* Cambia el borde al turquesa */
+  box-shadow: 0 8px 25px rgba(77, 137, 145, 0.7) !important; /* Resplandor turquesa intenso (70% opacidad) */
 }
 
 .form-container h2 {
@@ -78,21 +90,27 @@ main.contenido {
   font-size: 14px;
 }
 
+/* ==========================================================================
+   ELEMENTOS INTERNOS (BOTONES Y ENLACES)
+   ========================================================================== */
+
+/* Botón principal con el color del profesor */
 .form-container button {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #4D8991 !important;
+  color: white !important;
   border: none;
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
+/* Hover del botón (Variante más oscura #3B6B72 para contraste) */
 .form-container button:hover {
-  background-color: #45a049;
+  background-color: #3B6B72 !important;
 }
 
 .mensaje-error, .mensaje-exito {
@@ -101,11 +119,10 @@ main.contenido {
 }
 
 .mensaje-exito {
-  color: #2e7d32;
+  color: #4D8991 !important;
   font-weight: bold;
 }
 
-/* Estilos para etiquetas de campos de registro */
 .input-group-especial {
   text-align: left;
   margin-top: 5px;
@@ -117,9 +134,30 @@ main.contenido {
   margin-left: 5px;
 }
 
+/* Enlace simulado unificado al color #4D8991 */
 .link-simulado {
-  color: #4CAF50;
+  color: #4D8991 !important;
   text-decoration: underline;
   cursor: pointer;
   font-weight: bold;
+}
+
+/* ==========================================================================
+   FORZADO DE SWEETALERT2
+   ========================================================================== */
+.swal2-styled.swal2-confirm {
+  background-color: #4D8991 !important;
+  color: white !important;
+}
+
+.swal2-styled.swal2-confirm:hover {
+  background-color: #3B6B72 !important;
+}
+
+.swal2-icon.swal2-success {
+  border-color: #4D8991 !important;
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  background-color: #4D8991 !important;
 }
