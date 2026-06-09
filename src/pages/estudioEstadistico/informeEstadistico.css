@@ -22,9 +22,9 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2),
   inset 0 0 15px rgba(255, 255, 255, 0.869); /* brillo interno */
   margin: 0 auto;   /* centra el bloque */
-  max-width: 340px;
+  max-width: 250px;
   min-width: 300px;
-  max-height: 310px;
+  max-height: 400px;
   min-height: 300px;
   box-shadow: 0 0 0 2px #a185aa;
 }
@@ -74,17 +74,20 @@
   color: #192c36;
   text-shadow: 0 0 5px rgba(255,255,255,0.8);
   font-family: 'Pyidaungsu',;
-  text-align: justify;
+  
   margin-bottom: 4px;
-
+ 
 }
+ 
 
 .textoExplicativo h5 {
-font-size: clamp(16px, 0.5vw, 32px);
+font-size: clamp(18px, 0.5vw, 32px);
 margin-top: 1x;
-color: #222323;
+color: #ffffff;
 font-family: 'Pyidaungsu',;
-text-align: justify;
+font-weight: 600;
+text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.345);
+
 }
 
 .loremp h4 {

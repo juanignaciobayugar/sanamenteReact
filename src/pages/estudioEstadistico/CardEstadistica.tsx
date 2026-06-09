@@ -5,6 +5,7 @@ interface CardInformeProps {
   title: string;
   description: string;
   loremp: string;
+  LorempMensual?: string;
 }
 
 const CardInforme: React.FC<CardInformeProps> = ({
@@ -12,6 +13,7 @@ const CardInforme: React.FC<CardInformeProps> = ({
   title,
   description,
   loremp,
+  LorempMensual
 }) => {
   return (
     <div className="cardEstadistica">
@@ -32,6 +34,9 @@ const CardInforme: React.FC<CardInformeProps> = ({
         </div>
         <div className="loremp">
           <h4>{loremp}</h4>
+        </div>
+        <div className="loremp">
+          <h4>{LorempMensual}</h4>
         </div>
       </div>
     </div>
