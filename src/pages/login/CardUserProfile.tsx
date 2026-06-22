@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import Swal from "sweetalert2";
-
+import Avatar from "boring-avatars";
 interface CardUserProfileProps {
   onLogout: () => void;
+
 }
 
 interface UserData {
@@ -16,44 +17,66 @@ function CardUserProfile({ onLogout }: CardUserProfileProps) {
   const [usuario, setUsuario] = useState<UserData | null>(null);
   const [cargando, setCargando] = useState(true);
 
-  // Tu lógica para obtener las cabeceras con el Bearer Token
+// Tu lógica para obtener las cabeceras con el Bearer Token fresco
   const getAuthHeaders = () => {
     const token = localStorage.getItem("token_jwt");
     return {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${token}`,
+      "Cache-Control": "no-cache, no-store, must-revalidate", // Agregadas acá para seguridad total
+      "Pragma": "no-cache",
+      "Expires": "0"
     };
   };
+// Si manejás el token en un estado de React (lo ideal)
+const [token] = useState<string | null>(localStorage.getItem("token_jwt"));
 
-  // Traer los datos del perfil desde el backend al montar el componente
-  useEffect(() => {
-    const obtenerPerfil = async () => {
-      try {
-        // AJUSTA ESTA URL: Poné la ruta de tu backend que devuelva el perfil del usuario logueado
-        // Normalmente es algo como http://localhost:3000/auth/me o http://localhost:3000/users/profile
-        const respuesta = await fetch("http://localhost:3000/auth/perfil", {
-          method: "GET",
-          headers: getAuthHeaders(),
-        });
+useEffect(() => {
+  let componenteActivo = true;
 
-        if (!respuesta.ok) {
-          throw new Error("No se pudo obtener el perfil o el token expiró");
-        }
+  const obtenerPerfil = async () => {
+    // Si no hay token en el estado, no hacemos la petición
+    if (!token) {
+      if (componenteActivo) setCargando(false);
+      return; 
+    }
 
-        const datos = await respuesta.json();
-        setUsuario(datos); // Guardamos { name, email, ... } en el estado
-      } catch (error) {
-        console.error("Error de autenticación:", error);
-        // Si el token no sirve, hacemos logout automático para limpiar la app
-        localStorage.clear();
-        onLogout();
-      } finally {
-        setCargando(false);
+    try {
+      if (componenteActivo) setCargando(true);
+      
+      const respuesta = await fetch(`http://localhost:3000/auth/perfil`, {
+        method: "GET",
+        headers: getAuthHeaders(), 
+      });
+
+      if (!respuesta.ok) throw new Error("Token inválido o expirado");
+
+      const datos = await respuesta.json();
+      
+      if (componenteActivo) {
+        setUsuario(datos); 
       }
-    };
+    } catch (error) {
+      console.error("Error de autenticación:", error);
+      if (componenteActivo) {
+        setUsuario(null);
+        localStorage.removeItem("token_jwt");
+        onLogout();
+      }
+    } finally {
+      if (componenteActivo) setCargando(false);
+    }
+  };
 
-    obtenerPerfil();
-  }, []);
+  obtenerPerfil();
+
+  return () => {
+    componenteActivo = false;
+  };
+  
+// ✅ Ahora sí: React vigila la variable de estado 'token'. 
+// Cuando el usuario se loguee y actualices este estado, el useEffect se ejecutará limpiamente.
+}, [token]);
 
   const manejarCerrarSesion = async () => {
     const resultado = await Swal.fire({
@@ -62,7 +85,7 @@ function CardUserProfile({ onLogout }: CardUserProfileProps) {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#4D8991",
-      cancelButtonColor: "#d33",
+      cancelButtonColor: "rgb(26, 51, 69)",
       confirmButtonText: "Sí, salir",
       cancelButtonText: "Cancelar"
     });
@@ -91,29 +114,33 @@ function CardUserProfile({ onLogout }: CardUserProfileProps) {
     );
   }
 
-// 📍 ACÁ VA EL AVATAR DINÁMICO (Justo antes del return principal)
-  const avatarUrl = usuario?.nombreCompleto 
-    ? `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(usuario.nombreCompleto)}`
-    : "https://api.dicebear.com/7.x/bottts/svg?seed=default";
+// 1. 📍 ESTO VA JUSTO ANTES DEL RETURN PRINCIPAL (Reemplaza tu avatarUrl viejo)
+const avatarName = usuario?.nombreCompleto || "default";
+const misColoresSalud = ["#b6e3f4", "#c0aade", "#e2f0d9", "#dbf2f2", "#4D8991"];
 
   return (
-    <div className="form-container user-profile-container">
+    <div className="form-container user-profile-container"style={{ textAlign: "center", marginTop: "30px" }}>
       <h2>Mi Perfil</h2>
       
       <div className="profile-details" style={{ textAlign: "center", margin: "20px 0" }}>
         {/* Foto de Perfil */}
-        <img 
-          src={avatarUrl} 
-          alt="Avatar de usuario" 
-          style={{ 
-            width: "110px", 
-            height: "110px", 
-            borderRadius: "50%", 
-            border: "3px solid #4D8991",
-            marginBottom: "15px",
-            backgroundColor: "#f4f4f4"
-          }} 
-        />
+<div style={{ 
+    display: "inline-block",
+    width: "110px", 
+    height: "110px", 
+    borderRadius: "50%", 
+    border: "3px solid #4D8991",
+    marginBottom: "15px",
+    backgroundColor: "#f4f4f4",
+    overflow: "hidden" /* Crucial para que el avatar no se salga del círculo */
+  }}>
+    <Avatar
+      size={110}
+      name={usuario?.nombreCompleto || "default"}
+      variant="beam" 
+      colors={["#b6e3f4", "#c0aade", "#e2f0d9", "#dbf2f2", "#4D8991"]}
+    />
+  </div>
         
         {/* Datos traídos del Backend */}
         <h3 style={{ color: "#333", margin: "5px 0", fontSize: "22px" }}>

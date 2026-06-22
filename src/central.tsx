@@ -223,16 +223,19 @@ function Central() {
         <Routes>
           <Route path="/" element={<Main />} />
 
-          <Route
-            path="/login"
-            element={
-              <MainLogin
-                onLogin={() => {
-                  setEstaLogueado(true); // Solo cambia el estado para prender el Header
-                }}
-              />
-            }
-          />
+  <Route
+  path="/login"
+  element={
+    <MainLogin
+      onLogin={() => {
+        setEstaLogueado(true); // Prende el Header
+      }}
+      onLogout={() => {
+        setEstaLogueado(false); // 👈 ¡ESTO APAGA EL HEADER AL INSTANTE!
+      }}
+    />
+  }
+/>
 
           <Route element={<RutaProtegida />}>
             <Route

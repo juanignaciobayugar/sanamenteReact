@@ -39,7 +39,7 @@
 .redes-container,
 .contact-container > div {
     background-color: #fff !important;
-    border-radius: 15px !important;
+    border-radius: 18px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
     padding: 25px !important;
     border: 2px solid #EDE7F6 !important; /* Fondo lavanda ultra suave para el contorno */
@@ -53,7 +53,7 @@
     font-family: 'Rubik', sans-serif;
     margin-top: 0;
     margin-bottom: 20px;
-    color: #B39DDB !important; /* Modificación de color: Malva Lavanda */
+    color: #B39DDB ; /* Modificación de color: Malva Lavanda */
     font-weight: 600;
     font-size: 1.5rem;
 }
