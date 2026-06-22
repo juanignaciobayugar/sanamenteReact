@@ -84,10 +84,23 @@ function CardLogin(props: CardLoginProps) {
 
         console.log("Login exitoso, token recibido:", datos.access_token);
 
+// 1. Limpiamos cualquier rastro viejo por seguridad
+      localStorage.removeItem("token_jwt");
+
         if (datos.access_token) {
           localStorage.setItem("token_jwt", datos.access_token);
         }
 
+
+        // 3. 🚨 LA REDIRECCIÓN VA ACÁ ADENTRO
+        // Coloca aquí tu función para cambiar de pantalla, por ejemplo:
+        // navigate("/perfil"); o la prop que le avise al padre.
+
+         else {
+        console.error("El backend no envió 'access_token'. Datos recibidos:", datos);
+      }
+
+   
         // CORRECCIÓN: SweetAlert2 configurado con el color unificado #4D8991
         await Swal.fire({
           title: "¡Sesión iniciada!",
