@@ -1,3 +1,5 @@
+
+
 import Card from "./Card";
 interface ButtonData {
   value: string;
@@ -10,17 +12,17 @@ interface CardDolorProps {
 
 function CardDolor({ onSelect }: CardDolorProps) {
   const dolorButtons: ButtonData[]= [
-    { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
-    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
-    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
-    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
-    { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
-    { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
-    { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
-    { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
-    { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
-    { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
-    { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose.png" },
+    { value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
+    { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
+    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
+    { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
+    { value: "5", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
+    { value: "6", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
+    { value: "7", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
+    { value: "8", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
+    { value: "9", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
+    { value: "10", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
+    { value: "nolose", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/nolose.png" },
   ];
 const handleSelect = (valor: string, imgSrc: string, index: number, variant?: string) => {
   if (valor !== "nolose") {
