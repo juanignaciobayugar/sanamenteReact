@@ -68,7 +68,7 @@ function CardLogin(props: CardLoginProps) {
       }
 
       try {
-        const respuesta = await fetch("http://localhost:3000/auth/login", {
+        const respuesta = await fetch("https://sanamentenestjs.onrender.com/auth/login", {
           method: "POST", 
           headers: {
             "Content-Type": "application/json",
@@ -125,7 +125,7 @@ function CardLogin(props: CardLoginProps) {
       }
 
       try {
-        const respuesta = await fetch("http://localhost:3000/users", {
+        const respuesta = await fetch("https://sanamentenestjs.onrender.com/users", {
           method: "POST", 
           headers: {
             "Content-Type": "application/json",

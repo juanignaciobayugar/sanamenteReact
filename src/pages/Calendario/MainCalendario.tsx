@@ -15,7 +15,7 @@ const MainCalendario = () => {
       if (!token) return;
 
       try {
-        const response = await fetch('http://localhost:3000/calendar-notes', {
+        const response = await fetch('https://sanamentenestjs.onrender.com/calendar-notes', {
           method: 'GET',
           headers: { 
             'Authorization': `Bearer ${token}` 

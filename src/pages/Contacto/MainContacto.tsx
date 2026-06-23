@@ -97,7 +97,7 @@ const MainContacto = () => {
 
     try {
       // Realizamos la petición HTTP POST hacia el servidor local de la app
-      const response = await fetch('http://localhost:3000/contacto', {
+      const response = await fetch('https://sanamentenestjs.onrender.com/contacto', {
         method: 'POST',
         headers: getAuthHeaders(), // Pasamos las cabeceras dinámicas (con o sin Token)
         body: JSON.stringify(bodyData), // Convertimos el objeto JS a un String JSON plano
