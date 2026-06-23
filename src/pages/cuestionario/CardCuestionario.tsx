@@ -10,11 +10,11 @@ interface CardEstadoProps {
 
 function CardEstado({ onSelect }: CardEstadoProps) {
   const estadoButtons: ButtonData[] = [
-    { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
-    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
-    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
-    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
-    { value: "nolose", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
+    { value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
+    { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
+    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
+    { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
+    { value: "nolose", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/nolose.png" },
   ];
 
 
@@ -69,7 +69,7 @@ const handleSelect = (valor: string, imgSrc: string, index: number, variant?: st
   return (
     <Card
       title="Mi estado de ánimo hoy está:"
-      imageSrc="../src/assets/imagenes/cuestionario/tarjetaAnimo/Sin título-1.png"
+      imageSrc="/assets/imagenes/cuestionario/tarjetaAnimo/Sin título-1.png"
       buttons={estadoButtons}
       variant="e"
       onSelect={handleSelect}

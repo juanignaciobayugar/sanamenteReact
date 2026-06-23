@@ -76,7 +76,7 @@ const handleSelect = (valor: string, imgSrc: string, index: number, variant?: st
   return (
     <Card
       title="¿Qué tan fuerte es el nivel de dolor que tengo?"
-      imageSrc="../src/assets/imagenes/cuestionario/tarjetaDolor/tarjeta dolor.png"
+      imageSrc="/assets/imagenes/cuestionario/tarjetaDolor/tarjeta dolor.png"
       buttons={dolorButtons}
       variant="d" //
        onSelect={handleSelect}
