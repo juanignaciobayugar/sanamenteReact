@@ -152,7 +152,7 @@ const obtenerTextoDolorMensual = (promedio: number): string => {
        <div className="contenidoPrincipal">
 
   <CardInforme
-        srcImage="../src/assets/imagenes/estadistica/3.png"
+        srcImage="/assets/imagenes/estadistica/3.png"
         title="Tú informe del nivel de dolor"
         description={`Ultima semana: ${semanal.promedioDolor} de 10 / Ultimo Mes: ${mensual.promedioDolor} de 10`}
         loremp={obtenerTextoDolor(semanal.promedioDolor)}
@@ -160,7 +160,7 @@ const obtenerTextoDolorMensual = (promedio: number): string => {
       />
 
   <CardInforme
-        srcImage="../src/assets/imagenes/estadistica/2.png"
+        srcImage="/assets/imagenes/estadistica/2.png"
         title="Tú informe del estado de Ánimo"
         description={`Ultima semana: ${semanal.estadoEmocionalPredominante} / Ultimo Mes: ${mensual.estadoEmocionalPredominante}`}
         loremp={obtenerTextoAnimo(semanal.estadoEmocionalPredominante)}
@@ -169,7 +169,7 @@ const obtenerTextoDolorMensual = (promedio: number): string => {
 
 
         <CardInforme
-        srcImage="../src/assets/imagenes/estadistica/1.png"
+        srcImage="/assets/imagenes/estadistica/1.png"
         title="Tú informe del estado de Energía"
         description={`Ultima semana: ${semanal.promedioEnergia} de 12 / Ultimo Mes: ${mensual.promedioEnergia} de 12`}
         loremp={obtenerTextoEnergia(semanal.promedioEnergia)}

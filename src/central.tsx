@@ -108,10 +108,10 @@ function Central() {
 
 
   const estadoButtons = [
-    { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
-    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
-    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
-    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
+    { value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
+    { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
+    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
+    { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
 
   ];
 
@@ -133,18 +133,18 @@ function Central() {
 
 
   const energiaButtons = [
-    { value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/1.png" },
-    { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2.png" },
-    { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/3.png" },
-    { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/4.png" },
-    { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/5.png" },
-    { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/6.png" },
-    { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/7.png" },
-    { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/8.png" },
-    { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/9.png" },
-    { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/10.png" },
-    { value: "11", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/11.png" },
-    { value: "12", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/12.png" },
+    { value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/1.png" },
+    { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/2.png" },
+    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/3.png" },
+    { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/4.png" },
+    { value: "5", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/5.png" },
+    { value: "6", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/6.png" },
+    { value: "7", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/7.png" },
+    { value: "8", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/8.png" },
+    { value: "9", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/9.png" },
+    { value: "10", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/10.png" },
+    { value: "11", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/11.png" },
+    { value: "12", imgSrc: "/assets/imagenes/cuestionario/tarjetaEnergia/cucharadas-energia/12.png" },
   ];
 
   const estadosdataD = [
@@ -163,16 +163,16 @@ function Central() {
     },
   ];
 
-  const dolorButtons = [{ value: "1", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
-  { value: "2", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
-  { value: "3", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
-  { value: "4", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
-  { value: "5", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
-  { value: "6", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
-  { value: "7", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
-  { value: "8", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
-  { value: "9", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
-  { value: "10", imgSrc: "../src/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
+  const dolorButtons = [{ value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/1.png" },
+  { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/2.png" },
+  { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/3.png" },
+  { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/4.png" },
+  { value: "5", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/5.png" },
+  { value: "6", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/6.png" },
+  { value: "7", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/7.png" },
+  { value: "8", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/8.png" },
+  { value: "9", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/9.png" },
+  { value: "10", imgSrc: "/assets/imagenes/cuestionario/tarjetaDolor/dolor/10.png" },
   ]
 
   const [estaLogueado, setEstaLogueado] = useState<boolean>(!!localStorage.getItem("token_jwt"));
