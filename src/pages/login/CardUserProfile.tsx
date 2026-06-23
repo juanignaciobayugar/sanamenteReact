@@ -44,7 +44,7 @@ useEffect(() => {
     try {
       if (componenteActivo) setCargando(true);
       
-      const respuesta = await fetch(`http://localhost:3000/auth/perfil`, {
+      const respuesta = await fetch(`https://sanamentenestjs.onrender.com/auth/perfil`, {
         method: "GET",
         headers: getAuthHeaders(), 
       });

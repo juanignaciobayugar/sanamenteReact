@@ -50,7 +50,7 @@ function CardEnergia({ onSelect }: CardEnergiaProps) {
      };
  
      // Disparamos la petición al backend en segundo plano
-     fetch("http://localhost:3000/daily-records/save-click", {
+     fetch("https://sanamentenestjs.onrender.com/daily-records/save-click", {
        method: "POST",
        headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}` },
        body: JSON.stringify(bodyPayload)

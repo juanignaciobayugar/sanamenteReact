@@ -333,7 +333,7 @@ function Central() {
 
                   estadoEmocional: Number(valor)                 // Tu puntaje (ej: 4)
                 };
-                fetch("http://localhost:3000/daily-records/save-click", {
+                fetch("https://sanamentenestjs.onrender.com/daily-records/save-click", {
                   method: "POST",
                   headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                   body: JSON.stringify(bodyPayload)
@@ -374,7 +374,7 @@ function Central() {
                   // 1
                   estadoEnergia: Number(valor)                 // Tu puntaje (ej: 4)
                 };
-                fetch("http://localhost:3000/daily-records/save-click", {
+                fetch("https://sanamentenestjs.onrender.com/daily-records/save-click", {
                   method: "POST",
                   headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                   body: JSON.stringify(bodyPayload)
@@ -415,7 +415,7 @@ function Central() {
 
                   estadoDolor: Number(valor)                 // Tu puntaje (ej: 4)
                 };
-                fetch("http://localhost:3000/daily-records/save-click", {
+                fetch("https://sanamentenestjs.onrender.com/daily-records/save-click", {
                   method: "POST",
                   headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                   body: JSON.stringify(bodyPayload)

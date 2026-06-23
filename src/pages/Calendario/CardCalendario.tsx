@@ -39,7 +39,7 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
 
     try {
       // Petición POST enviando el token en los headers al backend
-      const response = await fetch('http://localhost:3000/calendar-notes', {
+      const response = await fetch('https://sanamentenestjs.onrender.com/calendar-notes', {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -95,7 +95,7 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
 
     try {
       // Petición PATCH al endpoint específico usando el ID de la nota
-      const response = await fetch(`http://localhost:3000/calendar-notes/${notaId}`, {
+      const response = await fetch(`https://sanamentenestjs.onrender.com/calendar-notes/${notaId}`, {
         method: 'PATCH',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -141,7 +141,7 @@ const CardCalendario = ({ day, dateKey, isToday, dayEvents, eventsState, setEven
     if (!confirm.isConfirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/calendar-notes/${notaId}`, {
+      const response = await fetch(`https://sanamentenestjs.onrender.com/calendar-notes/${notaId}`, {
         method: 'DELETE',
         headers: getAuthHeaders()
       });

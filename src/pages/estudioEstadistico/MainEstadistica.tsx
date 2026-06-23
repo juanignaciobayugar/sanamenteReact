@@ -28,7 +28,7 @@ function MainEstadistica() {
         // Recuperamos el token que guardaste al hacer login (ej. en localStorage)
         const token = localStorage.getItem('token_jwt'); 
 
-        const response = await fetch('http://localhost:3000/statistics/dashboard', {
+        const response = await fetch('https://sanamentenestjs.onrender.com/statistics/dashboard', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
