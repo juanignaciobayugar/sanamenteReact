@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Swal from "sweetalert2";
 import Avatar from "boring-avatars";
 interface CardUserProfileProps {
@@ -114,9 +114,6 @@ useEffect(() => {
     );
   }
 
-// 1. 📍 ESTO VA JUSTO ANTES DEL RETURN PRINCIPAL (Reemplaza tu avatarUrl viejo)
-const avatarName = usuario?.nombreCompleto || "default";
-const misColoresSalud = ["#b6e3f4", "#c0aade", "#e2f0d9", "#dbf2f2", "#4D8991"];
 
   return (
     <div className="form-container user-profile-container"style={{ textAlign: "center", marginTop: "30px" }}>

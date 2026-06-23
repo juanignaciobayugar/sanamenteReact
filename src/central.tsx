@@ -2,7 +2,6 @@ import img1 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 3.png";
 import img2 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 2.png";
 import img3 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 1.png";
 import img4 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 4.png";
-import img5 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 5.png";
 import img6 from "./assets/imagenes/cuestionario/no lo se d-e/no lo se 6.png";
 import { RutaProtegida } from "./components/RutaProtegida.tsx"; // El guardia que creamos recién
 
