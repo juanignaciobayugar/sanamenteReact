@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import CardCalendario from './CardCalendario';
-import './calendario.css';
+import './Calendario.css';
 
 const MainCalendario = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
