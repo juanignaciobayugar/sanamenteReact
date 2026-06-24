@@ -110,7 +110,7 @@ function Central() {
   const estadoButtons = [
     { value: "1", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/bien.png" },
     { value: "2", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/regular.png" },
-    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/mal.png" },
+    { value: "3", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/MAL.png" },
     { value: "4", imgSrc: "/assets/imagenes/cuestionario/tarjetaAnimo/estado animo/estupendo.png" },
 
   ];
