@@ -49,7 +49,7 @@ function Header({
 }: HeaderProps) {
   return (
     <header>
-      <img src="..\src\assets\imagenes\index\logo.png" alt="Logo de la empresa" className="logo" />
+      <img src="/assets/imagenes/index/logo.png" alt="Logo de la empresa" className="logo" />
 
 {estaLogueado && (
       <div id="tarjetaDinamica">
