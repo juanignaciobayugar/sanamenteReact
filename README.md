@@ -1,78 +1,42 @@
- HEAD
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene el desarrollo del **Portal Frontend** para el proyecto **"Sanamente"**, iniciado a partir de una plantilla optimizada con soporte para Hot Module Replacement (HMR) y tipado estricto.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# "Sanamente" - Portal Frontend (`sanamenteReactPortal`)
 
-## React Compiler
+**Sanamente** es una plataforma web de salud digital e integral diseñada exclusivamente para el seguimiento, control y organización diaria de pacientes con patologías crónicas. El propósito principal de la aplicación es brindarles a los usuarios una interfaz limpia, intuitiva y accesible donde puedan autogestionar sus rutinas de salud sin complicaciones.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este repositorio representa el Frontend interactivo del ecosistema, migrado de una estructura nativa a una arquitectura moderna basada en la separación de responsabilidades (**decoupling**), comunicándose de forma asíncrona y segura con el servidor Backend.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías y Herramientas Utilizadas (Frontend)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Para garantizar una experiencia de usuario fluida, interactiva y robusta, se implementaron las siguientes tecnologías:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **React.js (con Vite):** Estructura basada en componentes reutilizables y un empaquetado ágil que permite una navegación fluida tipo SPA (*Single Page Application*).
+* **TypeScript:** Implementación de interfaces y tipos personalizados para asegurar la integridad de los datos que viajan por los componentes.
+* **React Router DOM:** Manejo de rutas internas y protección de rutas privadas para navegar instantáneamente y sin recargas de página.
+* **SweetAlert2:** Integración de ventanas modales estéticas y personalizadas para interactuar con el usuario (confirmaciones, ingresos de tareas y alertas).
+* **CSS3 Personalizado:** Estilos orientados a la experiencia de usuario (UX) utilizando la tipografía *Poppins*, optimizados con variables CSS para el manejo ágil de colores y espaciados.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Estructura del Proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Este repositorio corresponde exclusivamente al **Portal Frontend (`sanamenteReactPortal`)**:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-# sanamenteReact
-Proyecto Sanamente 2026 en React
- 8d4288190bc8c2fffa38e0b6b570a613396f01da
+```text
+sanamenteReactPortal/
+├── src/
+│   ├── components/     # Componentes reutilizables (CardCalendario, MainCalendario, etc.)
+│   ├── pages/          # Vistas principales (Login, Registro, Dashboard/Calendario)
+│   ├── routes/         # Configuración de rutas públicas y protegidas
+│   ├── services/       # Conexión con la API del Backend (Fetch/Axios hacia NestJS)
+│   ├── styles/         # Archivos CSS personalizados y globales (Variables, Poppins)
+│   ├── App.tsx         # Componente principal de React
+│   └── main.tsx        # Punto de entrada de Vite
+├── package.json        # Dependencias de React y scripts de desarrollo
+└── tsconfig.json       # Configuración de TypeScript en el Frontend
